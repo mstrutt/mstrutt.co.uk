@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-new",
+  "version": "0.0.1",
+  "description": "Rebuilding mstrutt.co.uk",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "parcel ./app/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Strutt",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "sass": "^1.16.0"
+  }
+}
