@@ -1,0 +1,35 @@
+@import '../colours';
+
+code,
+pre {
+    border: 1px solid $code-border-color;
+    border-radius: .4em;
+    background: $code-background;
+}
+
+code {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: .1em 0 .2em;
+
+    &:before,
+    &:after {
+        content: "\00a0";
+        letter-spacing: -.2em
+    }    
+}
+
+
+pre {
+    padding: .75em 1em;
+    
+    > code {
+        display: block;
+        border: 0;
+
+        &:before,
+        &:after {
+            content: none;
+        }    
+    }
+}

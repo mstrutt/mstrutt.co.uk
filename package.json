@@ -4,7 +4,7 @@
   "description": "Rebuilding mstrutt.co.uk",
   "main": "server/index.js",
   "scripts": {
-    "start": "parcel ./app/index.html",
+    "start": "parcel ./app/*.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Strutt",

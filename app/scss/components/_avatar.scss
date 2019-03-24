@@ -23,6 +23,12 @@
     }
 
     &--sticky {
-        transform: translate(calc(-50vw + 50% + 1em), calc(50% + 1em)) scale(.25);
+        transform: translate(calc(-50vw + 50% + #{$header-padding}), calc(50% + #{$header-padding})) scale(.25);
+    }
+
+    .header--compressed & {
+        transform: translate(calc(-50vw + 50% + #{$header-padding}), -#{$header-padding}) scale(.25);
+        transform-origin: 0 0;
+        transition: none;
     }
 }
