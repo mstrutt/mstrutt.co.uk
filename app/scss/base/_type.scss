@@ -1,0 +1,27 @@
+@import '../colours';
+
+// Using native system fonts https://css-tricks.com/snippets/css/system-font-stack/
+@font-face {
+	font-family: system-ui;
+	font-style: normal;
+	font-weight: 300;
+    src: local(".SFNSText-Light"),
+        local(".HelveticaNeueDeskInterface-Light"),
+        local(".LucidaGrandeUI"),
+        local("Segoe UI Light"),
+        local("Ubuntu Light"),
+        local("Roboto-Light"),
+        local("DroidSans"),
+        local("Tahoma");
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    color: $body-text;
+    font-family: system-ui;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}

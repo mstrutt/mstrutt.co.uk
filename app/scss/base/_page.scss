@@ -1,0 +1,20 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    padding-bottom: 10rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 2em;
+}
