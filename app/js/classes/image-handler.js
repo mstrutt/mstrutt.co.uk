@@ -2,7 +2,7 @@
 
 import { debounce } from './utils';
 
-export const IMAGE_PADDING = 30 * 2;
+export const IMAGE_PADDING = 40;
 
 export const CLASSES = {
   BUTTON: 'image-resize__button',
@@ -38,6 +38,9 @@ export default class ImageHandler {
     this.element.classList.add(CLASSES.IMAGE);
     this.button.classList.add(CLASSES.BUTTON);
     this.button.setAttribute('aria-label', 'Toggle image size');
+    if (!this.allowResize) {
+      this.button.style.display = 'none';
+    }
     this.bindEvents_();
   }
 
@@ -76,7 +79,7 @@ export default class ImageHandler {
     this.element.style.maxWidth = maxWidth;// reset
     this.element.style.marginLeft = this.element.style.marginRight = margin; // reset
     this.availableSpace = window.innerWidth - IMAGE_PADDING;
-    return this.inFlowWidth < this.potentialWidth && this.inFlowWidth < this.availableSpace;
+    return this.inFlowWidth < this.potentialWidth && (this.availableSpace / this.inFlowWidth) > 1.1;
   }
 
   onResize() {
@@ -87,6 +90,7 @@ export default class ImageHandler {
     } else {
       this.resetImageSize();
     }
+    this.button.style.display = this.allowResize ? '' : 'none';
   }
 
   bindEvents_() {
