@@ -1,0 +1,16 @@
+@import '../colours';
+
+button {
+  background: $button-background;
+  border: 0 none;
+  border-radius: .2em;
+  color: $button-text;
+  font-family: inherit;
+  font-size: inherit;
+  padding: .5em .75em;
+
+  &:hover,
+  &:focus {
+    background: $button-background--hover;
+  }
+}

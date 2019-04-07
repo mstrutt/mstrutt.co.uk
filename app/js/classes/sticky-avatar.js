@@ -1,7 +1,8 @@
-export class StickyAvatar {
-  // class constants
-  static get STICKY_CLASS() { return 'avatar--sticky'; }
-  
+// @ts-check
+
+export const STICKY_CLASS = 'avatar--sticky';
+
+export default class StickyAvatar {
   constructor(element) {
     this.element = element;
     this.midpoint = null;

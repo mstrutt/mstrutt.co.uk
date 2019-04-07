@@ -1,0 +1,32 @@
+.image-resize {
+  position: relative;
+
+  &__button {
+    opacity: .1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity .1s;
+
+    &::before {
+      background-image: url('../images/image-resize.svg');
+      content: '';
+      display: block;
+      filter: invert(1);
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &:hover &__button,
+  :focus &__button {
+    opacity: .8;
+  }
+
+  & &__button {
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

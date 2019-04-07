@@ -9,3 +9,7 @@ $link: #2274a5;
 $link--hover: #3680ad;
 $link--visited: #6a526b;
 $link--visited-hover: #776178;
+
+$button-background: $link;
+$button-background--hover: $link--hover;
+$button-text: white;

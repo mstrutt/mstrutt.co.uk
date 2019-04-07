@@ -6,9 +6,15 @@
     padding: 1em;
     position: sticky;
     text-align: center;
-    top: -410px;
+    top: -410px; // @TODO make this fluid   
 
     &--compressed {
         height: 0;
+        top: 0;
+    }
+
+    // No sticky header on small screens or high zoom
+    @media screen and (max-height: 27em) {
+        position: static !important;
     }
 }

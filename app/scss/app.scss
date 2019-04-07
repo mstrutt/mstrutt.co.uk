@@ -3,10 +3,12 @@
 
 @import 'mixins/fluid-type';
 
-@import 'base/type';
+@import 'base/buttons';
 @import 'base/page';
+@import 'base/type';
 
 @import 'components/avatar';
 @import 'components/blog';
 @import 'components/code';
 @import 'components/header';
+@import 'components/image-resize';
