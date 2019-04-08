@@ -15,11 +15,18 @@
     width: 300px;
     will-change: transform;
 
+    &::before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+    }
+
     &__src {
         display: block;
         max-height: 100%;
         max-width: 100%;
         padding-top: (44/500*100%);
+        margin-top: -100%;
     }
 
     &--sticky {
