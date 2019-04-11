@@ -3,6 +3,7 @@
 
 .avatar {
   background-color: $background;
+  background-image: radial-gradient(circle at bottom, rgba(63,63,63,.3), $background 50%);
   border-radius: 50%;
   border: 10px solid $background-alt;
   bottom: 100%;
@@ -36,11 +37,5 @@
 
   &--sticky {
     transform: translate(calc(-50vw + 50% + #{$header-padding}), calc(50% + 50px)) scale(.25);
-  }
-
-  .header--compressed & {
-    transform: translate(calc(-50vw + 50% + #{$header-padding}), -#{$header-padding}) scale(.25);
-    transform-origin: 0 0;
-    transition: none;
   }
 }

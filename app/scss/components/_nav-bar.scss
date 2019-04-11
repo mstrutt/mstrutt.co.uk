@@ -1,15 +1,34 @@
 @import '../colours';
+@import '../vars';
 
 .nav-bar {
   background-color: $background;
   box-shadow: 0 25px 20px 0 $background-alt;
-  height: 60px;
-  padding: 1em 1em 1em calc(75px + 2em);
+  height: $nav-bar-size;
+  line-height: $nav-bar-size;
+  padding: 0 1em;
   position: sticky;
   top: 0;
   z-index: 10;
 
+  @media screen and (max-width: 62em) {
+    padding-left: calc(75px + 2em);
+  }
+
   @media screen and (max-height: 27em) {
     position: static !important;
+  }
+
+  a {
+    color: $nav-link;
+    
+    &:hover,
+    &:focus {
+      color: $nav-link--hover;
+    }
+
+    &:visited {
+      color: $nav-link--visited;
+    }
   }
 }
