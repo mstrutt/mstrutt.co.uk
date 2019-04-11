@@ -1,21 +1,17 @@
 @import '../colours';
 
 .header {
-    background-color: $background;
-    box-shadow: 0px 3px 25px 20px $background-alt;
-    padding: 1em;
-    position: sticky;
-    text-align: center;
-    top: -410px; // @TODO make this fluid   
-    z-index: 10;
+  padding: 1em;
+  text-align: center;
 
-    &--compressed {
-        height: 0;
-        top: 0 !important;
+  &__spacer {
+    width: 300px;
+    max-width: 100%;
+    
+    &::after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
     }
-
-    // No sticky header on small screens or high zoom
-    @media screen and (max-height: 27em) {
-        position: static !important;
-    }
+  }
 }

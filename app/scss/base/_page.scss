@@ -1,20 +1,24 @@
+@import '../colours';
+
 html {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
-    margin: 0;
+	background-color: $background;
+	margin: 0;
 }
 
 main {
-    padding-bottom: 5em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 2em;
+	background-color: $background-alt;
+	padding-bottom: 5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 2em;
 }

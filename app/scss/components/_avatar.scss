@@ -2,39 +2,45 @@
 @import '../vars';
 
 .avatar {
-    background-color: $background;
-    border-radius: 50%;
-    border: 10px solid $background-alt;
-    box-shadow: 0 0 12px 4px $background;
-    display: inline-block;
+  background-color: $background;
+  border-radius: 50%;
+  border: 10px solid $background-alt;
+  bottom: 100%;
+  box-shadow: 0 0 12px 4px $background;
+  display: block;
+  left: 0;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  transition: transform $avatar-transition-duration $avatar-transition-easing;
+  transform-origin: 0 50%;
+  white-space: nowrap;
+  width: 300px;
+  will-change: transform;
+  z-index: 11;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  &__src {
+    display: block;
+    max-height: 100%;
     max-width: 100%;
-    overflow: hidden;
-    transition: transform $avatar-transition-duration $avatar-transition-easing;
-    transform-origin: 0 50%;
-    white-space: nowrap;
-    width: 300px;
-    will-change: transform;
+    margin-top: -100%;
+  }
 
-    &::before {
-        content: '';
-        display: block;
-        padding-top: 100%;
-    }
+  &--sticky {
+    transform: translate(calc(-50vw + 50% + #{$header-padding}), calc(50% + 50px)) scale(.25);
+  }
 
-    &__src {
-        display: block;
-        max-height: 100%;
-        max-width: 100%;
-        margin-top: -100%;
-    }
-
-    &--sticky {
-        transform: translate(calc(-50vw + 50% + #{$header-padding}), calc(50% + #{$header-padding})) scale(.25);
-    }
-
-    .header--compressed & {
-        transform: translate(calc(-50vw + 50% + #{$header-padding}), -#{$header-padding}) scale(.25);
-        transform-origin: 0 0;
-        transition: none;
-    }
+  .header--compressed & {
+    transform: translate(calc(-50vw + 50% + #{$header-padding}), -#{$header-padding}) scale(.25);
+    transform-origin: 0 0;
+    transition: none;
+  }
 }

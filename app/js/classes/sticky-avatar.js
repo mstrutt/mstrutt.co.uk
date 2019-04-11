@@ -6,6 +6,7 @@ export default class StickyAvatar {
   constructor(element) {
     this.element = element;
     this.midpoint = null;
+    this.onScroll();
 
     this.bindEvents_();
   }
@@ -16,7 +17,8 @@ export default class StickyAvatar {
 
   onScroll() {
     if (!this.midpoint) {
-      this.midpoint = this.element.offsetTop + (this.element.offsetHeight / 2);
+      const { top, height } = this.element.getBoundingClientRect();
+      this.midpoint = top + (height / 2);
     }
     if (window.scrollY > this.midpoint) {
       this.element.classList.add(STICKY_CLASS);

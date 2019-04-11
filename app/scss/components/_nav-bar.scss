@@ -1,0 +1,15 @@
+@import '../colours';
+
+.nav-bar {
+  background-color: $background;
+  box-shadow: 0 25px 20px 0 $background-alt;
+  height: 60px;
+  padding: 1em 1em 1em calc(75px + 2em);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  @media screen and (max-height: 27em) {
+    position: static !important;
+  }
+}
