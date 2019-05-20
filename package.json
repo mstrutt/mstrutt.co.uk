@@ -4,6 +4,7 @@
   "description": "Rebuilding mstrutt.co.uk",
   "main": "server/index.js",
   "scripts": {
+    "blog-build": "node ./scripts/blog-build.js",
     "start": "parcel ./app/*.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +13,9 @@
   "devDependencies": {
     "parcel-bundler": "^1.11.0",
     "sass": "^1.16.0"
+  },
+  "dependencies": {
+    "front-matter": "^3.0.2",
+    "marked": "^0.6.2"
   }
 }
