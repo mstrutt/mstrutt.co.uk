@@ -22,7 +22,12 @@ readdirPromise(`${SRC_FOLDER}`)
           const content = frontMatter(file);
           const body = marked(content.body);
           const date_formatted = new Date(content.attributes.date).toDateString();
-          const json = Object.assign({}, content.attributes, { date_formatted, body });
+          const url = getPostUrl(filename);
+          const json = Object.assign({}, content.attributes, {
+            date_formatted,
+            url,
+            body
+          });
           const string = JSON.stringify(json, null, 2);
           const outputFilename = formatFilename(filename);
           return writeFilePromise(`${DIST_FOLDER}/${outputFilename}`, string);
@@ -33,6 +38,11 @@ readdirPromise(`${SRC_FOLDER}`)
   .catch(err => console.error(err));
 
 function formatFilename(filename) {
-  const parts = filename.match(/(\d+-\d+)-\d+-(.+)\.(markdown|md)/)
+  const parts = filename.match(/(\d+-\d+)-\d+-(.+)\.(markdown|md)/);
   return `${parts[1]}-${parts[2]}.json`;
+}
+
+function getPostUrl(filename) {
+  const parts = filename.match(/(\d+)-(\d+)-\d+-(.+)\.(markdown|md)/);
+  return `/blog/${parts[1]}/${parts[2]}/${parts[3]}/`;
 }
