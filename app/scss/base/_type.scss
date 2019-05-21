@@ -40,13 +40,13 @@ h1 {
 a {
 	color: $link;
 	transition: .1s color .1s;
+	
+	&:visited {
+		color: $link--visited;
+	}
 
 	&:hover {
 		color: $link--hover;
-	}
-
-	&:visited {
-		color: $link--visited;
 	}
 }
 
