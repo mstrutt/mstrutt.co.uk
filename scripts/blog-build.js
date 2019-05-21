@@ -21,7 +21,8 @@ readdirPromise(`${SRC_FOLDER}`)
         .then(file => {
           const content = frontMatter(file);
           const body = marked(content.body);
-          const json = Object.assign({}, content.attributes, { body });
+          const date_formatted = new Date(content.attributes.date).toDateString();
+          const json = Object.assign({}, content.attributes, { date_formatted, body });
           const string = JSON.stringify(json, null, 2);
           const outputFilename = formatFilename(filename);
           return writeFilePromise(`${DIST_FOLDER}/${outputFilename}`, string);
