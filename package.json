@@ -4,18 +4,25 @@
   "description": "Rebuilding mstrutt.co.uk",
   "main": "server/index.js",
   "scripts": {
-    "blog-build": "node ./scripts/blog-build.js",
-    "start": "parcel ./app/*.html",
+    "build": "npm run build-parcel && npm run build-blog",
+    "build-blog": "node ./scripts/blog-build.js",
+    "build-parcel": "parcel build app/template.html app/images/**/*",
+    "develop": "parcel watch app/template.html ./app/images/**/*",
+    "serve": "node ./server/index.js",
+    "start": "npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Strutt",
   "license": "MIT",
   "devDependencies": {
+    "front-matter": "^3.0.2",
+    "marked": "^0.6.2",
     "parcel-bundler": "^1.11.0",
+    "parcel-plugin-bundle-manifest": "^0.2.0",
     "sass": "^1.16.0"
   },
   "dependencies": {
-    "front-matter": "^3.0.2",
-    "marked": "^0.6.2"
+    "express": "^4.17.0",
+    "squirrelly": "^7.1.1"
   }
 }
