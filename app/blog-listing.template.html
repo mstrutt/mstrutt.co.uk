@@ -1,0 +1,17 @@
+{{each(options.posts)}}
+  <article itemscope="" itemtype="http://schema.org/BlogPosting" class="h-entry body-copy">
+    <header>
+      <h2 class="title p-name" itemprop="name"><a href="{{@this.url}}">{{@this.title}}</a></h2>
+    </header>
+    {{if(@this.preview)}}
+      <span itemprop="articleBody" class="p-summary"><p>{{@this.preview}}</p></span>
+    {{/if}}
+    <a href="{{@this.url}}" class="read-more u-url">Read more</a>
+    <footer class="blog-list">
+      <p class="metadata">
+        Written by <span itemprop="author" class="p-author h-card">Michael Strutt</span>
+        on <time itemprop="datePublished" datetime="{{@this.date}}" class="dt-published">{{@this.date_formatted}}</time>.
+      </p>
+    </footer>
+  </article>
+{{/each}}
