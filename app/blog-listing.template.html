@@ -1,3 +1,18 @@
+<div class="body-copy">
+  {{if(options.posts.length > 0)}}
+  <h1>{{title}}</h1>
+  {{#else}}
+  <h1>No results</h1>
+  <p>No blog posts found for this time period.</p>
+  {{/if}}
+  {{if(options.params.year || options.params.month)}}
+    <ul class="breadcrumbs">
+      <li><a href="/blog/">Blog</a></li>
+      {{if(options.params.year)}}<li><a href="/blog/{{params.year}}/">{{params.year}}</a></li>{{/if}}
+      {{if(options.params.month)}}<li><a href="/blog/{{params.month}}/">{{params.month}}</a></li>{{/if}}
+    </ul>
+  {{/if}}
+</div>
 {{each(options.posts)}}
   <article itemscope="" itemtype="http://schema.org/BlogPosting" class="h-entry body-copy">
     <header>

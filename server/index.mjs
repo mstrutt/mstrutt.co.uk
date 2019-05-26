@@ -21,7 +21,7 @@ app.get('/blog/', (req, res) => {
         .filter(filename => filename.match(pattern))
         .sort()
         .reverse();
-      return renderPostList(postList, title);
+      return renderPostList(postList);
     })
     .then(page => res.send(page))
     .catch(defaultCatch(res));
@@ -39,7 +39,7 @@ app.get('/blog/:year(\\d+)/(:month(\\d+)/)?', (req, res) => {
         .filter(filename => filename.match(pattern))
         .sort()
         .reverse();
-      return renderPostList(postList, title);
+      return renderPostList(postList, title, req.params);
     })
     .then(page => res.send(page))
     .catch(defaultCatch(res));
@@ -72,7 +72,7 @@ app.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
     });
 });
 
-function renderPostList(postList, title) {
+function renderPostList(postList, title='Blog', params={},) {
   return Promise.all([
     readFilePromise('./app/blog-listing.template.html'),
     readFilePromise(`./dist/template.html`),
@@ -81,10 +81,13 @@ function renderPostList(postList, title) {
     .then(([listTemplate, pageTemplate, ...files]) => {
       const filesJSON = files.map(file => JSON.parse(file));
       const main = squirrelly.Render(listTemplate, {
+        title,
+        params,
         posts: filesJSON
       });
       return squirrelly.Render(pageTemplate, {
-        title: title || 'Blog',
+        title,
+        params,
         main
       });
     });
