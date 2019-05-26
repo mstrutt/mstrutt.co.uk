@@ -1,11 +1,11 @@
-const frontMatter = require('front-matter');
-const marked = require('marked');
+import frontMatter from 'front-matter';
+import marked from 'marked';
 
-const { 
+import { 
   readdirPromise,
   readFilePromise,
   writeFilePromise
-} = require('../utils/fs.js');
+} from '../utils/fs.js';
 
 const SRC_FOLDER = './_blog-posts';
 const DIST_FOLDER = './blog';

@@ -1,10 +1,10 @@
-const express = require('express');
-const squirrelly = require('squirrelly')
+import express from 'express';
+import squirrelly from 'squirrelly';
 
-const { 
+import { 
   readdirPromise,
   readFilePromise
-} = require('../utils/fs.js');
+} from '../utils/fs.mjs';
 
 squirrelly.autoEscaping(false);
 

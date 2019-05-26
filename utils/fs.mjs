@@ -1,6 +1,6 @@
-const fs = require('fs');
+import fs from 'fs';
 
-function readdirPromise(directory) {
+export function readdirPromise(directory) {
   return new Promise((resolve, reject) => {
     fs.readdir(directory, 'utf8', function(err, files) {
       if (err) {
@@ -12,7 +12,7 @@ function readdirPromise(directory) {
   });
 }
 
-function readFilePromise(filename) {
+export function readFilePromise(filename) {
   return new Promise((resolve, reject) => {
     fs.readFile(filename, 'utf8', function(err, data) {
       if (err) {
@@ -24,7 +24,7 @@ function readFilePromise(filename) {
   });
 }
 
-function writeFilePromise(filename, data) {
+export function writeFilePromise(filename, data) {
   return new Promise((resolve, reject) => {
     fs.writeFile(filename, data, function(err) {
       if (err) {
@@ -36,9 +36,3 @@ function writeFilePromise(filename, data) {
     });
   });
 }
-
-module.exports = {
-  readdirPromise,
-  readFilePromise,
-  writeFilePromise
-};
