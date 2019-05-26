@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "express": "^4.17.0",
+    "express-slash": "^2.0.1",
     "squirrelly": "^7.1.1"
   }
 }

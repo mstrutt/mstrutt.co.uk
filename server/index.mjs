@@ -1,4 +1,5 @@
 import express from 'express';
+import slash from 'express-slash';
 import squirrelly from 'squirrelly';
 
 import { 
@@ -14,9 +15,17 @@ readFilePromise('./app/breadcrumbs.partial.html')
 
 const app = express();
 
+app.enable('strict routing');
+const router = express.Router({
+  caseSensitive: app.get('case sensitive routing'),
+  strict: app.get('strict routing')
+});
+app.use(router);
+app.use(slash());
+
 app.use(express.static('./dist'));
 
-app.get('/blog/', (req, res) => {
+router.get('/blog/', (req, res) => {
   const pattern = /^\d+-\d+-.+\.json$/;
 
   readdirPromise('./blog')
@@ -32,7 +41,7 @@ app.get('/blog/', (req, res) => {
 });
 
 // Year and month search
-app.get('/blog/:year(\\d+)/(:month(\\d+)/)?', (req, res) => {
+router.get('/blog/:year(\\d+)/(:month(\\d+)/)?', (req, res) => {
   const { year, month } = req.params;
   const pattern = new RegExp(`^${year || '\\d+'}-${month || '\\d+'}-.+\\.json$`);
   const title = `Blog posts from ${year}${month ? `/${month}` : ''}`;
@@ -49,7 +58,7 @@ app.get('/blog/:year(\\d+)/(:month(\\d+)/)?', (req, res) => {
     .catch(defaultCatch(res));
 });
 
-app.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
+router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
   const { year, month, slug } = req.params;
 
   Promise.all([
