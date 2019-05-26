@@ -45,15 +45,53 @@ app.get('/blog/', (req, res) => {
     });
 });
 
-app.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
-  // const info = JSON.stringify({
-  //   headers: req.headers,
-  //   url: req.url,
-  //   params: req.params
-  // }, null, 2);
-  // console.log(info);
-  // res.send(`<pre>${info}</pre>`);
+// Year and month search
+app.get('/blog/:year(\\d+)/(:month(\\d+)/)?', (req, res) => {
+  const {
+    year,
+    month
+  } = req.params;
 
+  const pattern = new RegExp(`^${year || '\\d+'}-${month || '\\d+'}-.+\\.json$`);
+  let title = `Blog posts from ${year}`;
+  if (month) {
+    title += `/${month}`;
+  }
+
+  console.log(pattern);
+
+  readdirPromise('./blog')
+    .then((files) => {
+      const postList = files
+        .filter(filename => filename.match(pattern))
+        .sort()
+        .reverse()
+        .map(filename => readFilePromise(`./blog/${filename}`));
+      return Promise.all([
+        readFilePromise('./app/blog-listing.template.html'),
+        readFilePromise(`./dist/template.html`),
+        ...postList
+      ]);
+    })
+    .then(([blogListing, template, ...files]) => {
+      const filesJSON = files.map(file => JSON.parse(file));
+      const content = squirrelly.Render(blogListing, {
+        posts: filesJSON
+      });
+      const page = squirrelly.Render(template, {
+        title,
+        main: content
+      });
+      res.send(page);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.statusCode = 500;
+      res.send('500');
+    });
+});
+
+app.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
   const {
     year,
     month,
