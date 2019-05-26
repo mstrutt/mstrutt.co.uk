@@ -7,6 +7,10 @@ import {
 } from '../utils/fs.mjs';
 
 squirrelly.autoEscaping(false);
+readFilePromise('./app/breadcrumbs.partial.html')
+  .then(((breadcrumbs) => {
+    squirrelly.definePartial('breadcrumbs', breadcrumbs);
+  }));
 
 const app = express();
 
@@ -55,7 +59,13 @@ app.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
   ])
     .then(([content, postTemplate, template]) => {
       const contentJSON = JSON.parse(content);
-      const postHtml = squirrelly.Render(postTemplate, contentJSON);
+      const postHtml = squirrelly.Render(postTemplate, {
+        ...contentJSON,
+        params: {
+          year,
+          month
+        }
+      });
       const page = squirrelly.Render(template, {
         ...contentJSON,
         main: postHtml

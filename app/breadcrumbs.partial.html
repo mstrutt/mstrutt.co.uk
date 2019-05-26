@@ -1,0 +1,7 @@
+{{if(options.params.year || options.params.month)}}
+  <ul class="breadcrumbs">
+    <li><a href="/blog/">Blog</a></li>
+    {{if(options.params.year)}}<li><a href="/blog/{{params.year}}/">{{params.year}}</a></li>{{/if}}
+    {{if(options.params.month)}}<li><a href="/blog/{{params.month}}/">{{params.month}}</a></li>{{/if}}
+  </ul>
+{{/if}}
