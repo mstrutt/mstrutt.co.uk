@@ -2,6 +2,8 @@
 
 html {
 	box-sizing: border-box;
+	display: flex;
+	min-height: 100%;
 }
 
 *,
@@ -12,11 +14,15 @@ html {
 
 body {
 	background-color: $background;
+	display: flex;
+	flex-flow: column;
+	flex: 1;
 	margin: 0;
 }
 
 main {
 	background-color: $background-alt;
+	flex: 1;
 	padding-bottom: 5em;
 	padding-left: 1em;
 	padding-right: 1em;
