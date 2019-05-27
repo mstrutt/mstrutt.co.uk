@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>MStrutt.co.uk</title>
+    <description>MStrutt.co.uk is the personal portfolio site of Michael Strutt, a Front-end web developer based in London</description>
+    <link>http://mstrutt.co.uk</link>
+    <copyright>Copyright Michael Strutt 2007 - 2016</copyright>
+    {{each(options.posts)}}
+      <item>
+        <title>{{@this.title}}</title>
+        {{if(@this.preview)}}
+          <description>{{@this.preview.replace('&', '&amp;')}}</description>
+        {{/if}}
+        <link>http://mstrutt.co.uk{{@this.url}}</link>
+        <pubDate>{{@this.date}}</pubDate>
+      </item>
+    {{/each}}
+  </channel>
+</rss>
