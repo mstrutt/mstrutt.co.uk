@@ -6,6 +6,7 @@ import {
   readdirPromise,
   readFilePromise
 } from '../utils/fs.mjs';
+import redirects from './redirects.json';
 
 squirrelly.autoEscaping(false);
 readFilePromise('./app/breadcrumbs.partial.html')
@@ -89,6 +90,14 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
         defaultCatch(res)(err)
       }
     });
+});
+
+Object.entries(redirects).forEach(([route, redirect]) => {
+  router.get(route, (req, res) => {
+    res
+      .status(301)
+      .redirect(redirect);
+  });
 });
 
 function renderPostList(postList, title='Blog', params={},) {
