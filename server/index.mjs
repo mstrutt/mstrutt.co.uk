@@ -13,6 +13,10 @@ readFilePromise('./app/breadcrumbs.partial.html')
   .then(((breadcrumbs) => {
     squirrelly.definePartial('breadcrumbs', breadcrumbs);
   }));
+readFilePromise('./app/footer.partial.html')
+  .then(((footer) => {
+    squirrelly.definePartial('footer', footer);
+  }));
 
 const app = express();
 
