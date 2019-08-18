@@ -15,5 +15,11 @@ $nav-link-size: 80px;
 
 $max-line-length: 33em;
 
+$bp-x-small: 460px;
+$bp-small: 600px;
+$bp-medium: 750px;
+$bp-large: 850px;
 $bp-x-wide: 1000px;
-$bp-logo-move: $bp-x-wide;
+
+$bp-nav-move: $bp-x-wide;
+$bp-logo-move: $bp-small;

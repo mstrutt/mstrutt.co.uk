@@ -7,15 +7,18 @@
   width: 100%;
 
   @media (min-width: $bp-logo-move) {
+    padding-left: $logo-spacing;
+  }
+
+  @media (min-width: $bp-nav-move) {
     flex-flow: column nowrap;
     margin-right: 400px;
     overflow: hidden;
     padding: 2px 0;
     position: absolute;
     right: 50%;
-    top: 200px;
-    transform: translateY(-50%);
-    width: $nav-link-size;
+    top: 30px;
+    width: 90px;
     z-index: 2;
 
     &::after {
@@ -30,7 +33,7 @@
     }
   }
 
-  @media (min-width: $bp-logo-move + 200px) {
+  @media (min-width: $bp-nav-move + 200px) {
     margin-right: 450px;
   }
 
@@ -55,11 +58,13 @@
       color: $nav-link--hover;
     }
 
-    @media (min-width: $bp-logo-move) {
+    @media (min-width: $bp-nav-move) {
       border-radius: 8px 0 0 8px;
+      height: 90px;
       margin-bottom: 4px;
       margin-top: 4px;
       overflow: hidden;
+      width: 90px;
 
       &,
       &:visited {
@@ -74,10 +79,12 @@
         color: #fff;
       }
 
+      &--active {
+        border-top-left-radius: 22px;
+      }
+
       &--active::before {
-        border: 8px solid $background;
-        border-right-color: #d6e9f5;
-        border-bottom-color: #d6e9f5;
+        border: 8px solid #d6e9f5;
         border-radius: 0 0 8px 0;
         box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, .4);
         content: '';
