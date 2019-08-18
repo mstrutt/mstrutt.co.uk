@@ -13,6 +13,14 @@
     transition: .2s ease;
     width: 58px;
     will-change: transform;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
     
     svg {
       height: 32px;

@@ -16,4 +16,10 @@
     max-width: 100%;
     margin: 0 auto;
   }
+  
+  @media (min-width: $bp-x-wide) {
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+  }
 }

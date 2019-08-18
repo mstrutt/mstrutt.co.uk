@@ -5,7 +5,15 @@ $avatar-transition-easing: $bounce-easing;
 
 $header-padding: 1em;
 $header-border-size: 10px;
+$header-max-width: 65%;
+
+$logo-size: 100px;
+$logo-spacing: 10px;
 
 $nav-bar-size: 60px;
+$nav-link-size: 80px;
 
 $max-line-length: 33em;
+
+$bp-x-wide: 1000px;
+$bp-logo-move: $bp-x-wide;

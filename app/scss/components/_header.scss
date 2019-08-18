@@ -1,11 +1,63 @@
 @import '../colours';
+@import '../vars';
 
 .header {
   background-color: $header-background;
   border-bottom: $header-border-size solid $header-border;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
   padding: $header-padding $header-padding 0;
-  position: relative;
   text-align: center;
+  
+  @media (min-width: $bp-x-wide) {
+    min-height: 430px;
+    position: relative;
+
+    .social-links {
+      justify-content: flex-end;
+    }
+  }
+
+  &__inner {
+    margin: 0 auto;
+    max-width: $max-line-length;
+
+    @media (min-width: $bp-x-wide) {
+      max-width: $header-max-width;
+      padding-bottom: 1.5em;
+      padding-left: $header-max-width * .45;
+      text-align: right;
+    }
+  }
+
+  &__logo {
+    background: #3E3E3E;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 38px;
+    height: $logo-size;
+    left: $logo-spacing;
+    line-height: $logo-size * 1.04;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: $logo-spacing * -1;
+    transform: rotate(-7.5deg) scale(1.01);
+    width: $logo-size;
+    z-index: 2;
+    
+    &,
+    &:visited,
+    &:hover,
+    &:visited:hover {
+      color: #FFF;
+    }
+
+    @media (min-width: $bp-logo-move) {
+      position: static;
+    }
+  }
 
   &__tagline {
     font-size: 2.4rem;
