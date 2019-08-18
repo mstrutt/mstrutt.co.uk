@@ -2,33 +2,62 @@
 @import '../vars';
 
 .nav-bar {
-  background-color: $background;
-  box-shadow: 0 25px 20px 0 $background-alt;
-  height: $nav-bar-size;
-  line-height: $nav-bar-size;
-  padding: 0 1em;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  display: flex;
+  margin: 0 auto;
+  max-width: $max-line-length * 1.15;
+  width: 100%;
 
-  @media screen and (max-width: 62em) {
-    padding-left: calc(75px + 2em);
-  }
-
-  @media screen and (max-height: 27em) {
-    position: static !important;
-  }
-
-  a {
-    color: $nav-link;
+  &__logo {
+    position: relative;
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    font-size: 38px;
+    line-height: 104px;
+    border-radius: 50%;
+    background: #3E3E3E;
+    transform: rotate(-7.5deg) scale(1.01);
+    margin: -10px 10px;
+    z-index: 2;
+    text-align: center;
+    text-decoration: none;
     
+    &,
+    &:visited,
     &:hover,
-    &:focus {
+    &:visited:hover {
+      color: #FFF;
+    }
+  }
+
+  &__link {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 80px;
+    justify-content: center;
+    text-decoration: none;
+    width: 80px;
+    
+    &,
+    &:visited {
+      color: $nav-link;
+    }
+
+    &:focus,
+    &:hover,
+    &:visited:hover {
       color: $nav-link--hover;
     }
+  }
 
-    &:visited {
-      color: $nav-link--visited;
-    }
+  &__link-text {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &__link-icon {
+
   }
 }

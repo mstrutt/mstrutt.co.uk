@@ -13,7 +13,7 @@ html {
 }
 
 body {
-	background-color: $background;
+	background-color: $background-alt;
 	display: flex;
 	flex-flow: column;
 	flex: 1;
@@ -21,10 +21,13 @@ body {
 }
 
 main {
-	background-color: $background-alt;
 	flex: 1;
 	padding-bottom: 5em;
 	padding-left: 1em;
 	padding-right: 1em;
 	padding-top: 2em;
+}
+
+svg {
+	fill: currentColor;
 }

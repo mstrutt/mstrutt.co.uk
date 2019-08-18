@@ -48,10 +48,18 @@ a {
 	&:hover {
 		color: $link--hover;
 	}
+	
+	&:visited:hover {
+		color: $link--hover;
+	}
 }
 
 .body-copy {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 33em;
+	max-width: $max-line-length;
+}
+
+.u-small-copy {
+  font-size: .8em;
 }

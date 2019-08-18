@@ -1,17 +1,13 @@
 @import '../colours';
 
 .header {
-  padding: 1em;
+  background-color: $header-background;
+  border-bottom: $header-border-size solid $header-border;
+  padding: $header-padding $header-padding 0;
+  position: relative;
   text-align: center;
 
-  &__spacer {
-    width: 300px;
-    max-width: 100%;
-    
-    &::after {
-      content: '';
-      display: block;
-      padding-bottom: 100%;
-    }
+  &__tagline {
+    font-size: 2.4rem;
   }
 }

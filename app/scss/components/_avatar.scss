@@ -2,40 +2,18 @@
 @import '../vars';
 
 .avatar {
-  background-color: $background;
-  background-image: radial-gradient(circle at bottom, rgba(63,63,63,.3), $background 50%);
-  border-radius: 50%;
-  border: 10px solid $background-alt;
-  bottom: 100%;
-  box-shadow: 0 0 12px 4px $background;
+  background-image: radial-gradient(ellipse at bottom, $header-border, transparent 70%);
+  background-size: contain;
   display: block;
-  left: 0;
-  margin: 0 auto;
-  max-width: 100%;
+  margin-bottom: $header-border-size * -1;
+  margin-top: 1em;
   overflow: hidden;
-  position: absolute;
   right: 0;
-  transition: transform $avatar-transition-duration $avatar-transition-easing;
-  transform-origin: 0 50%;
-  white-space: nowrap;
-  width: 300px;
-  will-change: transform;
-  z-index: 11;
-
-  &::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-  }
 
   &__src {
     display: block;
     max-height: 100%;
     max-width: 100%;
-    margin-top: -100%;
-  }
-
-  &--sticky {
-    transform: translate(calc(-50vw + 50% + #{$header-padding}), calc(50% + 50px)) scale(.25);
+    margin: 0 auto;
   }
 }

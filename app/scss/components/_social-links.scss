@@ -1,0 +1,46 @@
+.social-links {
+  display: flex;
+  justify-content: center;
+
+  &__link {
+    background-color: $header-border;
+    border-radius: 33px;
+    display: block;
+    height: 58px;
+    margin: 5px;
+    padding: 13px;
+    transform: matrix(.91, 0, 0, .91, 0, 0);
+    transition: .2s ease;
+    width: 58px;
+    will-change: transform;
+    
+    svg {
+      height: 32px;
+      width: 32px;
+    }
+
+    @media (min-width: 400px) {
+      height: 66px;
+      padding: 15px;
+      width: 66px;
+
+      svg {
+        height: 36px;
+        width: 36px;
+      }
+    }
+
+    &,
+    &:visited,
+    &:hover,
+    &:visited:hover {
+      color: white;
+    }
+    
+    &:focus,
+    &:hover {
+      background-color: rgba($header-border, .6);
+      transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+  }
+}

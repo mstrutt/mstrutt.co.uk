@@ -1,0 +1,27 @@
+.footer {
+  padding-bottom: 2em;
+  position: relative;
+  text-align: center;
+
+  &::before {
+    border: 1px solid $header-border;
+    border-width: 1px 0;
+    content: '';
+    display: block;
+    height: 4px;
+    left: 1em;
+    margin: 0 auto;
+    max-width: $max-line-length;
+    position: absolute;
+    right: 1em;
+    top: 36px;
+    z-index: -1;
+  }
+
+  &__social {
+    background-color: $background-alt;
+    display: inline-flex !important;
+    box-shadow: 0 0 0 10px $background-alt;
+    margin-bottom: 1em;
+  }
+}
