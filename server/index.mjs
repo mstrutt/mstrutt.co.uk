@@ -17,6 +17,14 @@ readFilePromise('./app/footer.partial.html')
   .then(((footer) => {
     squirrelly.definePartial('footer', footer);
   }));
+readFilePromise('./app/icons.partial.html')
+  .then(((icons) => {
+    squirrelly.definePartial('icons', icons);
+  }));
+readFilePromise('./app/social-links.partial.html')
+  .then(((socialLinks) => {
+    squirrelly.definePartial('social-links', socialLinks);
+  }));
 
 const app = express();
 
@@ -29,6 +37,21 @@ app.use(router);
 app.use(slash());
 
 app.use(express.static('./dist'));
+
+router.get('/', (req, res) => {
+  Promise.all([
+    readFilePromise(`./app/index.template.html`),
+    readFilePromise(`./dist/template.html`)
+  ])
+    .then(([main, template]) => {
+      return squirrelly.Render(template, {
+        title: 'Home',
+        main,
+        page: 'home',
+      });
+    })
+    .then(content => res.send(content));
+})
 
 router.get('/blog/', (req, res) => {
   const pattern = /^\d+-\d+-.+\.json$/;
@@ -82,7 +105,8 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
       });
       const page = squirrelly.Render(template, {
         ...contentJSON,
-        main: postHtml
+        main: postHtml,
+        page: 'blog',
       });
       res.send(page);
     })
@@ -144,7 +168,8 @@ function renderPostList(postList, title='Blog', params={},) {
       return squirrelly.Render(pageTemplate, {
         title,
         params,
-        main
+        main,
+        page: 'blog',
       });
     });
 }

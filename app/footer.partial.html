@@ -1,30 +1,7 @@
 <footer class="footer">
-  <div class="social-links">
-    <a class="social-links__link" aria-label="RSS feed" href="/rss.xml">
-      <svg height="36" width="36">
-        <title>RSS Feed</title>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#rss"></use>
-      </svg>
-    </a>
-    <a class="social-links__link" aria-label="LinkedIn" rel="me" href="https://uk.linkedin.com/pub/michael-strutt/51/712/561">
-      <svg height="36" width="36">
-        <title>LinkedIn</title>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use>
-      </svg>
-    </a>
-    <a class="social-links__link" aria-label="Twitter @_mstrutt" rel="me" href="http://twitter.com/_mstrutt">
-      <svg height="36" width="36">
-        <title>Twitter @_mstrutt</title>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
-      </svg>
-    </a>
-    <a class="social-links__link" aria-label="mstrutt on GitHub" rel="me" href="https://github.com/mstrutt">
-      <svg height="36" width="36">
-        <title>mstrutt on GitHub</title>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github-alt"></use>
-      </svg>
-    </a>
+  <div class="footer__social social-links">
+    {{include('social-links')/}}
   </div>
-  <p class="copyright"> Copyright Michael Strutt © 2007 - 2016</p>
-  <a id="gotToTop" class="go-to-top" href="#">Top of the Page</a>
+  <p class="footer__copyright u-small-copy"> Copyright Michael Strutt © 2007 - 2019</p>
+  <a id="gotToTop" class="u-small-copy" href="#">Top of the Page</a>
 </footer>

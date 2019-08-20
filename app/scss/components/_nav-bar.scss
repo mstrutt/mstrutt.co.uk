@@ -17,7 +17,7 @@
     padding: 2px 0;
     position: absolute;
     right: 50%;
-    top: 30px;
+    top: 120px;
     width: 90px;
     z-index: 2;
 
@@ -35,6 +35,12 @@
 
   @media (min-width: $bp-nav-move + 200px) {
     margin-right: 450px;
+  }
+
+  &--home {
+    @media (min-width: $bp-nav-move) {
+      top: 30px;
+    }
   }
 
   &__link {

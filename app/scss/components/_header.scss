@@ -2,13 +2,14 @@
 @import '../vars';
 
 .header {
+  $block: &;
+
   background-color: $header-background;
   border-bottom: $header-border-size solid $header-border;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  padding: $header-padding $header-padding 0;
-  text-align: center;
+  padding: $header-padding $header-padding calc(#{$header-padding} - #{$header-border-size});
   
   @media (min-width: $bp-x-small) {
     position: relative;
@@ -17,18 +18,19 @@
       justify-content: flex-end;
     }
   }
-
-  @media (min-width: 510px) {
-    padding-top: calc(30% - 80px);
-  }
-
-  // @media (min-width: $bp-small) {
-  //   padding-top: 2em;
-  // }
   
-  @media (min-width: $bp-medium) {
-    min-height: 430px;
-    padding-top: 0;
+  &--home {
+    padding-bottom: 0;
+    text-align: center;
+
+    @media (min-width: 510px) {
+      padding-top: calc(30% - 80px);
+    }
+
+    @media (min-width: $bp-medium) {
+      min-height: 430px;
+      padding-top: 0;
+    }
   }
 
   &__inner {
@@ -36,19 +38,25 @@
     max-width: $max-line-length;
     width: 100%;
     z-index: 1;
-    
-    @media (min-width: $bp-x-small) {
-      padding-bottom: 1.5em;
-      padding-left: 35%;
-      text-align: right;
-    }
-    
-    @media (min-width: $bp-large) {
-      padding-left: $header-max-width * .35;
-    }
 
-    @media (min-width: $bp-x-wide) {
-      max-width: $header-max-width;
+    @media (min-width: $bp-nav-move) {
+      position: relative;
+    }
+    
+    #{$block}--home & {
+      @media (min-width: $bp-x-small) {
+        padding-bottom: 1.5em;
+        padding-left: 35%;
+        text-align: right;
+      }
+      
+      @media (min-width: $bp-large) {
+        padding-left: $header-max-width * .35;
+      }
+  
+      @media (min-width: $bp-x-wide) {
+        max-width: $header-max-width;
+      }
     }
   }
 
@@ -86,7 +94,15 @@
     }
 
     @media (min-width: $bp-nav-move) {
-      position: static;
+      left: 100%;
+      right: auto;
+      top: calc(100% - #{$logo-size / 2});
+    }
+
+    #{$block}--home & {
+      @media (min-width: $bp-nav-move) {
+        position: static;
+      }
     }
   }
 

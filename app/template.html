@@ -9,15 +9,42 @@
     <div style="display: none">
       {{include('icons')/}}
     </div>
-    <div class="nav-bar">
-        <a href="/" class="avatar">
-            <img src="./images/avatar.svg" alt="Illustration of Michael Strutt" class="avatar__src">
-        </a>
-        <nav class="body-copy">
-            <a href="/">Home</a>
-            <a href="/blog/">Blog</a>
-        </nav>
-    </div>
+    <nav class="nav-bar nav-bar--{{page}}">
+      <a class="nav-bar__link{{if(options.page === 'home')}} nav-bar__link--active{{/if}}" href="/">
+        <svg class="nav-bar__link-icon" height="44" width="44">
+          <title>Home</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#home"></use>
+        </svg>
+        <span class="nav-bar__link-text">Home</span>
+      </a>
+      <a class="nav-bar__link{{if(options.page === 'blog')}} nav-bar__link--active{{/if}}" href="/blog/">
+        <svg class="nav-bar__link-icon" height="44" width="44">
+          <title>Blog</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#blog"></use>
+        </svg>
+        <span class="nav-bar__link-text">Blog</span>
+      </a>
+    </nav>
+
+    <header class="header header--{{page}}">
+      <div class="header__inner">
+        <a class="header__logo" href="/">MS</a>
+        {{if(options.page === 'home')}}
+          <h1>Michael Strutt</h1>
+          <p class="header__tagline">London-based Front-end Web Developer</p>
+          <div class="social-links">
+            {{include('social-links')/}}
+          </div>
+        {{#else}}
+          <h1 style="margin: 0">Blog</h1>
+        {{/if}}
+      </div>
+      {{if(options.page === 'home')}}
+        <div class="avatar">
+          <img src="./images/avatar.svg" alt="Illustration of Michael Strutt" class="avatar__src">
+        </div>
+      {{/if}}
+    </header>
     <main>
       {{main}}
     </main>

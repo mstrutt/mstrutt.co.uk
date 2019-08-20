@@ -1,9 +1,7 @@
 <div class="body-copy blog-list">
   {{include('breadcrumbs')/}}
-  {{if(options.posts.length > 0)}}
-    <h1>{{title}}</h1>
-  {{#else}}
-    <h1>No results</h1>
+  {{if(options.posts.length === 0)}}
+    <h2>No results</h2>
     <p>No blog posts found for this time period.</p>
   {{/if}}
 </div>
