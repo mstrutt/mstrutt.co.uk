@@ -34,13 +34,15 @@
   &__inner {
     margin: 0 auto;
     max-width: $max-line-length;
+    width: 100%;
+    z-index: 1;
     
     @media (min-width: $bp-x-small) {
       padding-bottom: 1.5em;
       padding-left: 35%;
       text-align: right;
     }
-
+    
     @media (min-width: $bp-large) {
       padding-left: $header-max-width * .35;
     }
