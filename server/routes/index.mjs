@@ -1,5 +1,6 @@
 import express from 'express';
 
+import {defaultCatch} from '../utils/error-handlng.mjs';
 import {readFilePromise} from '../utils/fs.mjs';
 import squirrelly from '../utils/squirrelly.mjs';
 
@@ -17,7 +18,8 @@ router.get('/', (req, res) => {
         page: 'home',
       });
     })
-    .then(content => res.send(content));
+    .then(content => res.send(content))
+    .catch(defaultCatch(res));
 });
 
 export default router;

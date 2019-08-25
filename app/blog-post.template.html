@@ -10,20 +10,22 @@
           </svg>
           {{include('breadcrumbs')/}}
         </li>
-        <li class="metadata__item">
-          <svg class="metadata__icon" height="22" width="22">
-            <title>Published on</title>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#calendar"></use>
-          </svg>
-          <time itemprop="datePublished" datetime="{{date}}" class="dt-published">{{date_formatted}}</time>
-        </li>
-        <li class="metadata__item">
-          <svg class="metadata__icon" height="22" width="22">
-            <title>Written by</title>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#author"></use>
-          </svg>
-          <span itemprop="author" class="p-author h-card">Michael Strutt</span>
-        </li>
+        {{if(options.date && options.date_formatted)}}
+          <li class="metadata__item">
+            <svg class="metadata__icon" height="22" width="22">
+              <title>Published on</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#calendar"></use>
+            </svg>
+            <time itemprop="datePublished" datetime="{{date}}" class="dt-published">{{date_formatted}}</time>
+          </li>
+          <li class="metadata__item">
+            <svg class="metadata__icon" height="22" width="22">
+              <title>Written by</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#author"></use>
+            </svg>
+            <span itemprop="author" class="p-author h-card">Michael Strutt</span>
+          </li>
+        {{/if}}
       </ul>
     </div>
     <div class="markdown">
@@ -31,10 +33,12 @@
     </div>
   </div>
   <!-- <footer class="single-post">
-    <p class="tags p-category">Categories: 
-      {{each(options.categories)}}
-        <a href="/blog/tags/{{@this}}/">{{@this}}.</a>
-      {{/each}}
-    </p>
+    {{if(options.categories && options.categories.length)}}
+      <p class="tags p-category">Categories: 
+        {{each(options.categories)}}
+          <a href="/blog/tags/{{@this}}/">{{@this}}.</a>
+        {{/each}}
+      </p>
+    {{/if}}
   </footer> -->
 </article>

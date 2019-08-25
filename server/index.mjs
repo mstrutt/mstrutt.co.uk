@@ -1,6 +1,9 @@
 import express from 'express';
 import slash from 'express-slash';
 
+// Middleware
+import fourOhFourMiddleware from './middleware/four-oh-four.mjs';
+
 // Routes
 import blogListingRoutes from './routes/blog-listing.mjs';
 import blogPostRoutes from './routes/blog-post.mjs';
@@ -23,6 +26,8 @@ app.use(blogListingRoutes);
 app.use(blogPostRoutes);
 app.use(redirectRoutes);
 app.use(rssRoutes);
+
+app.use(fourOhFourMiddleware);
 
 // Needs to be after all routes have been set up
 app.use(slash());

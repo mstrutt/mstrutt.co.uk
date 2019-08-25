@@ -35,12 +35,12 @@
           <div class="social-links">
             {{include('social-links')/}}
           </div>
-        {{/if}}
-        {{if(options.page === 'blog')}}
-          <h1 class="u-nm">Blog</h1>
-        {{/if}}
-        {{if(options.page === 'blog-post')}}
-          <p class="heading heading--alpha u-nm">Blog</p>
+        {{#else}}
+          {{if(options.page === 'blog-post')}}
+            <p class="heading heading--alpha u-nm">Blog</p>
+          {{#else}}
+            <h1 class="u-nm">{{title}}</h1>
+          {{/if}}
         {{/if}}
       </div>
       {{if(options.page === 'home')}}

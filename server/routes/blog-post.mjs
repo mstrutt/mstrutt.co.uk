@@ -1,6 +1,6 @@
 import express from 'express';
 
-import {defaultCatch} from '../utils/error-handling.mjs';
+import {defaultCatch, notFoundHandler} from '../utils/error-handling.mjs';
 import {readFilePromise} from '../utils/fs.mjs';
 import squirrelly from '../utils/squirrelly.mjs';
 
@@ -8,6 +8,12 @@ const router = new express.Router();
 
 router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
   const { year, month, slug } = req.params;
+  const contentData = {
+    params: {
+      year,
+      month
+    }
+  };
 
   Promise.all([
     readFilePromise(`./blog/${year}-${month}-${slug}.json`),
@@ -18,10 +24,7 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
       const contentJSON = JSON.parse(content);
       const postHtml = squirrelly.Render(postTemplate, {
         ...contentJSON,
-        params: {
-          year,
-          month
-        }
+        ...contentData
       });
       const page = squirrelly.Render(template, {
         ...contentJSON,
@@ -32,8 +35,10 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
     })
     .catch((err) => {
       if (err.code === 'ENOENT') {
-        res.statusCode = 404;
-        res.send('404');
+        notFoundHandler(res, {
+          ...contentData,
+          page: 'blog-post',
+        });
       } else {
         defaultCatch(res)(err)
       }
