@@ -106,7 +106,7 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
       const page = squirrelly.Render(template, {
         ...contentJSON,
         main: postHtml,
-        page: 'blog',
+        page: 'blog-post',
       });
       res.send(page);
     })

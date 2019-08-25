@@ -1,11 +1,13 @@
 @import 'colours';
 @import 'vars';
 
+@import 'mixins/fancy-border';
 @import 'mixins/fluid-type';
 
 @import 'base/buttons';
 @import 'base/page';
 @import 'base/type';
+@import 'base/utilities';
 
 @import 'components/avatar';
 @import 'components/blog';
@@ -14,5 +16,6 @@
 @import 'components/footer';
 @import 'components/header';
 @import 'components/image-resize';
+@import 'components/metadata';
 @import 'components/nav-bar';
 @import 'components/social-links';

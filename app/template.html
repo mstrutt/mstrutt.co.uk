@@ -17,7 +17,7 @@
         </svg>
         <span class="nav-bar__link-text">Home</span>
       </a>
-      <a class="nav-bar__link{{if(options.page === 'blog')}} nav-bar__link--active{{/if}}" href="/blog/">
+      <a class="nav-bar__link{{if(options.page === 'blog' || options.page === 'blog-post')}} nav-bar__link--active{{/if}}" href="/blog/">
         <svg class="nav-bar__link-icon" height="44" width="44">
           <title>Blog</title>
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#blog"></use>
@@ -35,8 +35,12 @@
           <div class="social-links">
             {{include('social-links')/}}
           </div>
-        {{#else}}
-          <h1 style="margin: 0">Blog</h1>
+        {{/if}}
+        {{if(options.page === 'blog')}}
+          <h1 class="u-nm">Blog</h1>
+        {{/if}}
+        {{if(options.page === 'blog-post')}}
+          <p class="heading heading--alpha u-nm">Blog</p>
         {{/if}}
       </div>
       {{if(options.page === 'home')}}
