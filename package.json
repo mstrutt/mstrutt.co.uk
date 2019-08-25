@@ -7,7 +7,7 @@
     "build": "npm run build-parcel && npm run build-blog",
     "build-blog": "node --experimental-modules ./scripts/blog-build.mjs",
     "build-parcel": "parcel build app/template.html app/images/**/*",
-    "develop": "parcel watch app/template.html app/index.html app/images/**/*",
+    "develop": "parcel watch app/template.html app/images/**/*",
     "serve": "node --experimental-modules ./server/index.mjs",
     "start": "npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"

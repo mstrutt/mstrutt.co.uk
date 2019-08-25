@@ -1,6 +1,6 @@
 import express from 'express';
 
-import {defaultCatch} from '../utils/error-handlng.mjs';
+import {defaultCatch} from '../utils/error-handling.mjs';
 import {readFilePromise} from '../utils/fs.mjs';
 import squirrelly from '../utils/squirrelly.mjs';
 
