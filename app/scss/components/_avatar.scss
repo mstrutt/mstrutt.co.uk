@@ -2,8 +2,10 @@
 @import '../vars';
 
 .avatar {
-  background-image: radial-gradient(ellipse at bottom, $header-border, transparent 70%);
-  background-size: contain;
+  background-image: radial-gradient(ellipse at bottom, #{rgba($header-border, .45)}, transparent 70%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
   display: block;
   margin-bottom: $header-border-size * -1;
   margin-top: 1em;
