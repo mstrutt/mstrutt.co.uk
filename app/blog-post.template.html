@@ -1,18 +1,40 @@
 <article itemscope="" itemtype="http://schema.org/BlogPosting" class="blog-post body-copy h-entry">
-  <div itemprop="articleBody" class="markdown e-content">
-    {{include('breadcrumbs')/}}
-    <h1>{{title}}</h1>
-    {{body}}
+  <div itemprop="articleBody" class="e-content">
+    <div class="blog-post__header">
+      <h1 class="blog-post__title">{{title}}</h1>
+      <ul class="metadata metadata--post u-unstyled-list u-nm">
+        <li class="metadata__item">
+          <svg class="metadata__icon" height="22" width="22">
+            <title>Breadcrumbs</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bread"></use>
+          </svg>
+          {{include('breadcrumbs')/}}
+        </li>
+        <li class="metadata__item">
+          <svg class="metadata__icon" height="22" width="22">
+            <title>Published on</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#calendar"></use>
+          </svg>
+          <time itemprop="datePublished" datetime="{{date}}" class="dt-published">{{date_formatted}}</time>
+        </li>
+        <li class="metadata__item">
+          <svg class="metadata__icon" height="22" width="22">
+            <title>Written by</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#author"></use>
+          </svg>
+          <span itemprop="author" class="p-author h-card">Michael Strutt</span>
+        </li>
+      </ul>
+    </div>
+    <div class="markdown">
+      {{body}}
+    </div>
   </div>
-  <footer class="single-post">
-    <p class="metadata">
-      Written by <span itemprop="author" class="p-author h-card">Michael Strutt</span>
-      on <time itemprop="datePublished" datetime="{{date}}" class="dt-published">{{date_formatted}}</time>.
-    </p>
-    <!-- <p class="tags p-category">Categories: 
+  <!-- <footer class="single-post">
+    <p class="tags p-category">Categories: 
       {{each(options.categories)}}
         <a href="/blog/tags/{{@this}}/">{{@this}}.</a>
       {{/each}}
-    </p> -->
-  </footer>
+    </p>
+  </footer> -->
 </article>

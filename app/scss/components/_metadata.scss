@@ -1,0 +1,28 @@
+.metadata {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
+  @media (min-width: #{$bp-x-small}) {
+    flex-direction: row;
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+  }
+
+  &--post &__item:first-child {
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    @media (min-width: #{$bp-small}) {
+      position: static;
+    }
+  }
+
+  &__icon {
+    margin-right: .3em;
+  }
+}
