@@ -1,0 +1,14 @@
+@mixin fancy-border {
+  border: 1px solid $header-border;
+  border-width: 1px 0;
+  content: '';
+  display: block;
+  height: 4px;
+  left: 1em;
+  margin: 0 auto;
+  max-width: $max-line-length;
+  position: absolute;
+  right: 1em;
+  top: 36px;
+  z-index: -1;
+}
