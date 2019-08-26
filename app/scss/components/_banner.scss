@@ -1,0 +1,59 @@
+.banner {
+  background: #d1d1d1;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  display: none;
+  padding: .75em;
+  
+  @media (min-width: #{$bp-medium}) {
+    display: block;
+  }
+  
+  @media (min-width: #{$bp-nav-move}) {
+    margin-bottom: 2rem;
+  }
+  
+  &__inner {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: $header-max-width;
+  }
+  
+  &__close {
+    align-items: center;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: .9em;
+    padding: 0;
+    
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+  
+  &__close-icon {
+    background-color: #888;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    height: 3rem;
+    line-height: 3rem;
+    margin-right: .5em;
+    padding: .5rem;
+    text-align: center;
+    width: 3rem;
+  }
+  
+  &__view-code {
+    font-size: .9em;
+    margin: 0;
+  }
+
+  &__button {
+    margin-left: 1.5rem;
+  }
+}

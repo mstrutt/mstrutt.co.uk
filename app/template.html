@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="dns-prefetch" href="./images/avatar.svg" />
+
     <title>{{title}} - MStrutt.co.uk</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="michael, strutt, mstrutt, front-end, frontend, html, css, javascript" />
+
     <link rel="stylesheet" href="./scss/app.scss">
   </head>
   <body>
     <div style="display: none">
       {{include('icons')/}}
     </div>
+
+    <aside class="banner">
+      <div class="banner__inner">
+        <button class="banner__close" id="hide-my-code">
+          <svg class="banner__close-icon" height="20" width="20">
+            <title>Close</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use>
+          </svg>
+          Don't show this again!
+        </button>
+        <p class="banner__view-code">
+          <span>See how I do what I do best.</span>
+          <a href="https://github.com/mstrutt/mstrutt.co.uk" class="banner__button button button--alt">
+            View my source code
+            <svg class="button__icon" height="20" width="20">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chevron-right"></use>
+            </svg>
+          </a>
+        </p>
+      </div>
+    </aside>
+
     <nav class="nav-bar nav-bar--{{page}}">
       <a class="nav-bar__link{{if(options.page === 'home')}} nav-bar__link--active{{/if}}" href="/">
         <svg class="nav-bar__link-icon" height="44" width="44">
