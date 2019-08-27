@@ -11,6 +11,10 @@ export const CLASSES = {
 };
 
 export default class ImageHandler {
+  static attachTo(element) {
+    return new ImageHandler(element);
+  }
+
   constructor(element) {
     this.element = element;
     this.button = document.createElement('button');

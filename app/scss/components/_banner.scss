@@ -1,8 +1,12 @@
 .banner {
   background: #d1d1d1;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
+  bottom: 100%;
   display: none;
-  padding: .75em;
+  height: 7rem;
+  padding: 0 .75em;
+  position: absolute;
+  width: 100%;
   
   @media (min-width: #{$bp-medium}) {
     display: block;
@@ -11,10 +15,15 @@
   @media (min-width: #{$bp-nav-move}) {
     margin-bottom: 2rem;
   }
+
+  &--hidden {
+    display: none;
+  }
   
   &__inner {
     align-items: center;
     display: flex;
+    height: 100%;
     justify-content: space-between;
     margin: 0 auto;
     max-width: $header-max-width;
@@ -55,5 +64,15 @@
 
   &__button {
     margin-left: 1.5rem;
+  }
+}
+
+.body-has-banner {
+  @media (min-width: #{$bp-medium}) {
+    transform: translateY(7rem);
+  }
+
+  @media (min-width: #{$bp-nav-move}) {
+    transform: translateY(9rem);
   }
 }
