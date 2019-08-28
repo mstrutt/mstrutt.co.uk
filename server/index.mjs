@@ -1,3 +1,4 @@
+import compression from 'compression';
 import express from 'express';
 import slash from 'express-slash';
 
@@ -17,6 +18,7 @@ const router = new express.Router({
   strict: app.get('strict routing')
 });
 app.use(router);
+app.use(compression());
 app.enable('strict routing');
 
 app.use(express.static('./dist'));
