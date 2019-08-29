@@ -11,7 +11,7 @@ export function defaultCatch(res) {
 
 export function notFoundHandler(res, contentData={}) {
   return Promise.all([
-    readFilePromise('./app/error.template.html'),
+    readFilePromise('./app/templates/error.html'),
     readFilePromise(`./dist/template.html`)
   ])
     .then(([postTemplate, template]) => {

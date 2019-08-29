@@ -8,7 +8,7 @@ const router = new express.Router();
 
 router.get('/', (req, res) => {
   Promise.all([
-    readFilePromise(`./app/index.template.html`),
+    readFilePromise(`./app/templates/index.html`),
     readFilePromise(`./dist/template.html`)
   ])
     .then(([main, template]) => {

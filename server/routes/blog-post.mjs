@@ -17,7 +17,7 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
 
   Promise.all([
     readFilePromise(`./blog/${year}-${month}-${slug}.json`),
-    readFilePromise('./app/blog-post.template.html'),
+    readFilePromise('./app/templates/blog-post.html'),
     readFilePromise(`./dist/template.html`)
   ])
     .then(([content, postTemplate, template]) => {
