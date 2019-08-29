@@ -5,7 +5,7 @@ import {
   readdirPromise,
   readFilePromise,
   writeFilePromise
-} from '../server/utils/fs.js';
+} from '../server/utils/fs.mjs';
 
 const SRC_FOLDER = './_blog-posts';
 const DIST_FOLDER = './blog';
