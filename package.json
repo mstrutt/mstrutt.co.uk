@@ -4,8 +4,9 @@
   "description": "Rebuilding mstrutt.co.uk",
   "main": "server/index.js",
   "scripts": {
-    "build": "npm run build-parcel && npm run build-blog",
+    "build": "npm run build-parcel && npm run build-blog && npm run build-html",
     "build-blog": "node --experimental-modules ./scripts/blog-build.mjs",
+    "build-html": "node --experimental-modules ./scripts/minify-html.mjs",
     "build-parcel": "parcel build app/template.html app/images/**/*",
     "develop": "parcel watch app/template.html app/images/**/*",
     "serve": "node --experimental-modules ./server/index.mjs",
@@ -16,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "front-matter": "^3.0.2",
+    "html-minifier": "^4.0.0",
     "marked": "^0.6.2",
     "parcel-bundler": "^1.11.0",
     "parcel-plugin-bundle-manifest": "^0.2.0",

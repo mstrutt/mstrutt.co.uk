@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path';
 
 export function readdirPromise(directory) {
   return new Promise((resolve, reject) => {
@@ -32,8 +31,20 @@ export function writeFilePromise(filename, data) {
         reject(err);
         return;
       }
-      console.log(`Written: ${filename}`)
+      console.debug(`Written: ${filename}`)
       resolve(filename);
+    });
+  });
+}
+
+export function mkdirPromise(path) {
+  return new Promise((resolve, reject) => {
+    fs.mkdir(path, { recursive: true }, (err) => {
+      if (err && err.code !== 'EEXIST') {
+        reject(err);
+        return;
+      }
+      resolve(path);
     });
   });
 }
