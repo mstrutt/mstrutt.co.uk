@@ -1,5 +1,6 @@
 import express from 'express';
 
+import envFolder from '../utils/env-folder.mjs';
 import {defaultCatch, notFoundHandler} from '../utils/error-handling.mjs';
 import {readFilePromise} from '../utils/fs.mjs';
 import squirrelly from '../utils/squirrelly.mjs';
@@ -17,7 +18,7 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
 
   Promise.all([
     readFilePromise(`./blog/${year}-${month}-${slug}.json`),
-    readFilePromise('./app/templates/blog-post.html'),
+    readFilePromise(`./${envFolder}/templates/blog-post.html`),
     readFilePromise(`./dist/template.html`)
   ])
     .then(([content, postTemplate, template]) => {

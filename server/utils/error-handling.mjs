@@ -1,3 +1,4 @@
+import envFolder from './env-folder.mjs';
 import {readFilePromise} from './fs.mjs';
 import squirrelly from './squirrelly.mjs';
 
@@ -11,7 +12,7 @@ export function defaultCatch(res) {
 
 export function notFoundHandler(res, contentData={}) {
   return Promise.all([
-    readFilePromise('./app/templates/error.html'),
+    readFilePromise(`./${envFolder}/templates/error.html`),
     readFilePromise(`./dist/template.html`)
   ])
     .then(([postTemplate, template]) => {
