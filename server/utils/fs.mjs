@@ -1,4 +1,5 @@
 import fs from 'fs';
+import winston from 'winston';
 
 export function readdirPromise(directory) {
   return new Promise((resolve, reject) => {
@@ -31,7 +32,7 @@ export function writeFilePromise(filename, data) {
         reject(err);
         return;
       }
-      console.debug(`Written: ${filename}`)
+      winston.debug(`Written: ${filename}`)
       resolve(filename);
     });
   });

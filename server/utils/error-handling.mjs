@@ -1,10 +1,11 @@
 import envFolder from './env-folder.mjs';
 import {readFilePromise} from './fs.mjs';
 import squirrelly from './squirrelly.mjs';
+import winston from 'winston';
 
 export function defaultCatch(res) {
   return (err) => {
-    console.error(err);
+    winston.error(err);
     res.statusCode = 500;
     res.send('500');
   };
