@@ -13,9 +13,11 @@ const minifierOptions = {
   collapseWhitespace: true, // Collapse white space that contributes to text nodes in a document tree
   continueOnParseError: true, // Handle parse errors instead of aborting.
   decodeEntities: true, // Use direct Unicode characters whenever possible
+  ignoreCustomFragments: [/\{\{[^}]+\}\}/], // Array of regex'es that allow to ignore certain fragments, when matched (e.g. <?php ... ?>, {{ ... }}, etc.)
   keepClosingSlash: true, // Keep the trailing slash on singleton elements
   minifyCSS: true, // Minify CSS in style elements and style attributes (uses clean-css) (could be true, Object, Function(text, type))
   minifyJS: true, // Minify JavaScript in script elements and event attributes (uses UglifyJS) (could be true, Object, Function(text, inline))
+  preserveLineBreaks: true, // Always collapse to 1 line break (never remove it entirely) when whitespace between tags include a line break. Must be used in conjunction with collapseWhitespace=true
   quoteCharacter: '"', // Type of quote to use for attribute values (' or ") 	
   removeComments: true, // Strip HTML comments
   removeEmptyAttributes: true, // Remove all attributes with whitespace-only values (could be true, Function(attrName, tag))
@@ -31,7 +33,8 @@ function outputDir(inputDir) {
 
 const folders = [
   './app/partials',
-  './app/templates'
+  './app/templates',
+  './dist'
 ];
 
 Promise.all(
