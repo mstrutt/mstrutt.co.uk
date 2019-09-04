@@ -11,6 +11,7 @@ const minifierOptions = {
   collapseBooleanAttributes: true, // Omit attribute values from boolean attributes
   collapseInlineTagWhitespace: true, // Don't leave any spaces between display:inline; elements when collapsing. Must be used in conjunction with collapseWhitespace=true
   collapseWhitespace: true, // Collapse white space that contributes to text nodes in a document tree
+  conservativeCollapse: true, // Always collapse to 1 space (never remove it entirely). Must be used in conjunction with collapseWhitespace=true
   continueOnParseError: true, // Handle parse errors instead of aborting.
   decodeEntities: true, // Use direct Unicode characters whenever possible
   ignoreCustomFragments: [/\{\{[^}]+\}\}/], // Array of regex'es that allow to ignore certain fragments, when matched (e.g. <?php ... ?>, {{ ... }}, etc.)
