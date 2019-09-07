@@ -41,9 +41,7 @@ button {
   }
 
 	&__icon {
-		display: inline-flex;
-    justify-content: center;
-    align-items: center;
+		display: block;
 		height: 4rem;
 		width: 4rem;
     margin-left: 1.5rem;

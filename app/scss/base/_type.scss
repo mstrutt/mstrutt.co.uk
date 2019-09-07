@@ -3,7 +3,7 @@
 
 // Using native system fonts https://css-tricks.com/snippets/css/system-font-stack/
 @font-face {
-	font-family: system-ui;
+	font-family: system-ui-fallback;
 	font-style: normal;
 	font-weight: 300;
 	src: local(".SFNSText-Light"),
@@ -11,8 +11,8 @@
 		local(".LucidaGrandeUI"),
 		local("Segoe UI Light"),
 		local("Ubuntu Light"),
-		local("Roboto-Light"),
 		local("DroidSans"),
+		local("Helvetica Neue"),
 		local("Tahoma");
 }
 
@@ -29,15 +29,16 @@ body {
 	);
 
 	color: $body-text;
-	font-family: system-ui;
+	font-family: system-ui, system-ui-fallback, Roboto, sans;
 	line-height: 1.6;
 }
 
-
 .heading {
-	font-weight: 700;
+	font-weight: bold;
 	margin-bottom: .5em;
 	margin-top: .5em;
+	text-rendering: optimizeLegibility; 
+	-webkit-font-smoothing: antialiased;
 	
 	&--alpha {
 		font-size: 3rem;
@@ -54,6 +55,10 @@ body {
 			font-size: 3.2rem;
 		}
 	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@extend .heading;
 }
 
 h1 {
@@ -89,5 +94,5 @@ a {
 
 .intro {
 	font-size: 1.05em;
-	font-weight: 600;
+	font-weight: bold;
 }

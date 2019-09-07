@@ -5,6 +5,12 @@
 
   &::before {
     @include fancy-border();
+
+    @media (min-width: #{$max-line-length + 2em}) {
+      left: 0;
+      right: 0;
+      width: $max-line-length;
+    }
   }
 
   &__social {
