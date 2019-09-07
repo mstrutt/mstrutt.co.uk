@@ -4,10 +4,11 @@
   "description": "Rebuilding mstrutt.co.uk",
   "main": "server/index.js",
   "scripts": {
-    "build": "npm run build-parcel && npm run build-blog && npm run build-html",
+    "build": "npm run build-parcel && npm run build-blog && npm run build-html && npm run build-rss",
     "build-blog": "node --experimental-modules ./scripts/blog-build.mjs",
     "build-html": "node --experimental-modules ./scripts/minify-html.mjs",
     "build-parcel": "parcel build app/template.html app/images/**/*",
+    "build-rss": "cp app/templates/rss.xml dist/templates/rss.xml",
     "develop": "parcel watch app/template.html app/images/**/*",
     "serve": "node --experimental-modules ./server/index.mjs",
     "start": "npm run serve",
