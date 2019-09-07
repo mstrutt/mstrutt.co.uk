@@ -29,7 +29,7 @@ export default class ImageHandler {
 
     this.boundToggle = this.toggleImageSize.bind(this);
     this.boundResize = this.onResize.bind(this);
-    this.debouncedResize = debounce(this.boundResize, 100)
+    this.debouncedResize = debounce(this.boundResize, 100);
 
     this.init();
   }
@@ -67,7 +67,7 @@ export default class ImageHandler {
   setBigImageSize() {
     const maxWidth = Math.min(this.potentialWidth, this.availableSpace);
     this.element.style.maxWidth = `${maxWidth}px`;
-    const offset = (this.inFlowWidth - maxWidth) / 2
+    const offset = (this.inFlowWidth - maxWidth) / 2;
     this.wrapper.style.marginLeft = this.wrapper.style.marginRight = `${offset}px`;
   }
 
@@ -80,7 +80,7 @@ export default class ImageHandler {
     this.element.style.maxWidth = 'none'; // don't constrain size
     this.potentialWidth = this.element.offsetWidth;
     this.potentialHeight = this.element.offsetHeight;
-    this.element.style.maxWidth = maxWidth;// reset
+    this.element.style.maxWidth = maxWidth; // reset
     this.element.style.marginLeft = this.element.style.marginRight = margin; // reset
     this.availableSpace = window.innerWidth - IMAGE_PADDING;
     return this.inFlowWidth < this.potentialWidth && (this.availableSpace / this.inFlowWidth) > 1.1;
@@ -102,7 +102,7 @@ export default class ImageHandler {
     this.element.addEventListener('load', this.boundResize, true);
     window.addEventListener('resize', this.debouncedResize, true);
   }
-  
+
   unbindEvents_() {
     this.button.removeEventListener('click', this.boundToggle);
     this.element.removeEventListener('load', this.boundResize, true);

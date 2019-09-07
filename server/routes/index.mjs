@@ -10,16 +10,16 @@ const router = new express.Router();
 router.get('/', (req, res) => {
   Promise.all([
     readFilePromise(`./${envFolder}/templates/index.html`),
-    readFilePromise(`./dist/template.html`)
+    readFilePromise(`./dist/template.html`),
   ])
     .then(([main, template]) => {
       return squirrelly.Render(template, {
-        title: 'Home',
         main,
         page: 'home',
+        title: 'Home',
       });
     })
-    .then(content => res.send(content))
+    .then((content) => res.send(content))
     .catch(defaultCatch(res));
 });
 

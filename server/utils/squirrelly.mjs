@@ -1,14 +1,14 @@
 import squirrelly from 'squirrelly';
 import envFolder from './env-folder.mjs';
 
-import {readFilePromise, readdirPromise} from './fs.mjs';
+import {readdirPromise, readFilePromise} from './fs.mjs';
 
 squirrelly.autoEscaping(false);
 readdirPromise(`./${envFolder}/partials/`)
   .then((partials) => {
     const pattern = /([-a-z]+)\.html/;
     const readingPartials = partials
-      .filter(file => file.match(pattern))
+      .filter((file) => file.match(pattern))
       .map((partialFilename) => {
         return readFilePromise(`./${envFolder}/partials/${partialFilename}`)
           .then((partial) => {

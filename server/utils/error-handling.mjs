@@ -1,6 +1,6 @@
 import envFolder from './env-folder.mjs';
-import logger from './logger.mjs';
 import {readFilePromise} from './fs.mjs';
+import logger from './logger.mjs';
 import squirrelly from './squirrelly.mjs';
 
 export function defaultCatch(res) {
@@ -11,21 +11,21 @@ export function defaultCatch(res) {
   };
 }
 
-export function notFoundHandler(res, contentData={}) {
+export function notFoundHandler(res, contentData = {}) {
   return Promise.all([
     readFilePromise(`./${envFolder}/templates/error.html`),
-    readFilePromise(`./dist/template.html`)
+    readFilePromise(`./dist/template.html`),
   ])
     .then(([postTemplate, template]) => {
       const postHtml = squirrelly.Render(postTemplate, {
-        title: 'Not found',
         body: 'Page not found...',
+        title: 'Not found',
         ...contentData,
       });
       const page = squirrelly.Render(template, {
-        title: '404',
-        page: 'error',
         main: postHtml,
+        page: 'error',
+        title: '404',
         ...contentData,
       });
       res.statusCode = 404;

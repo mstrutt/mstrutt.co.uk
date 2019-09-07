@@ -15,7 +15,7 @@ import rssRoutes from './routes/rss.mjs';
 const app = express();
 const router = new express.Router({
   caseSensitive: app.get('case sensitive routing'),
-  strict: app.get('strict routing')
+  strict: app.get('strict routing'),
 });
 app.use(router);
 app.use(compression());

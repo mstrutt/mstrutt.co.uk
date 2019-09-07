@@ -11,21 +11,21 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
   const { year, month, slug } = req.params;
   const contentData = {
     params: {
+      month,
       year,
-      month
-    }
+    },
   };
 
   Promise.all([
     readFilePromise(`./blog/${year}-${month}-${slug}.json`),
     readFilePromise(`./${envFolder}/templates/blog-post.html`),
-    readFilePromise(`./dist/template.html`)
+    readFilePromise(`./dist/template.html`),
   ])
     .then(([content, postTemplate, template]) => {
       const contentJSON = JSON.parse(content);
       const postHtml = squirrelly.Render(postTemplate, {
         ...contentJSON,
-        ...contentData
+        ...contentData,
       });
       const page = squirrelly.Render(template, {
         ...contentJSON,
@@ -41,7 +41,7 @@ router.get('/blog/:year(\\d+)/:month(\\d+)/:slug([a-z0-9-]+)/', (req, res) => {
           page: 'blog-post',
         });
       } else {
-        defaultCatch(res)(err)
+        defaultCatch(res)(err);
       }
     });
 });

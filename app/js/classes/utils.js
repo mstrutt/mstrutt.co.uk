@@ -11,5 +11,5 @@ export function debounce(callback, threshold) {
       clearTimeout(timeout);
     }
     timeout = setTimeout(onTimeout, threshold);
-  }
+  };
 }

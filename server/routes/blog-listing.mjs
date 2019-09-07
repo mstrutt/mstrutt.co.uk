@@ -12,12 +12,12 @@ router.get('/blog/', (req, res) => {
   readdirPromise('./blog')
     .then((files) => {
       const postList = files
-        .filter(filename => filename.match(pattern))
+        .filter((filename) => filename.match(pattern))
         .sort()
         .reverse();
       return renderPostList(postList);
     })
-    .then(page => res.send(page))
+    .then((page) => res.send(page))
     .catch(defaultCatch(res));
 });
 
@@ -30,12 +30,12 @@ router.get('/blog/:year(\\d+)/(:month(\\d+)/)?', (req, res) => {
   readdirPromise('./blog')
     .then((files) => {
       const postList = files
-        .filter(filename => filename.match(pattern))
+        .filter((filename) => filename.match(pattern))
         .sort()
         .reverse();
       return renderPostList(postList, title, req.params);
     })
-    .then(page => res.send(page))
+    .then((page) => res.send(page))
     .catch(defaultCatch(res));
 });
 

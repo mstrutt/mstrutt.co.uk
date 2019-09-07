@@ -1,11 +1,11 @@
 export const CLASSES = {
+  BODY_HAS_BANNER: 'body-has-banner',
   HIDDEN: 'banner--hidden',
-  BODY_HAS_BANNER: 'body-has-banner'
 };
 
 export const STATE = {
   HIDE: 'HIDE',
-  SHOW: 'SHOW'
+  SHOW: 'SHOW',
 };
 
 export default class CodeBanner {
@@ -24,7 +24,7 @@ export default class CodeBanner {
     // Using try catch so that we don't bind events if localStorage is unsupported
     try {
       this.setState();
-    } catch(err) {
+    } catch (err) {
       this.closeButton.style.visibility = 'hidden';
       return;
     }
@@ -42,7 +42,7 @@ export default class CodeBanner {
   }
 
   bindEvents() {
-    this.closeButton.addEventListener('click', this.hide)
+    this.closeButton.addEventListener('click', this.hide);
   }
 
   hide() {
@@ -50,7 +50,7 @@ export default class CodeBanner {
     document.body.classList.remove(CLASSES.BODY_HAS_BANNER);
     window.localStorage.setItem(this.storageNamespace, STATE.HIDE);
   }
-  
+
   show() {
     this.el.classList.remove(CLASSES.HIDDEN);
     document.body.classList.add(CLASSES.BODY_HAS_BANNER);
