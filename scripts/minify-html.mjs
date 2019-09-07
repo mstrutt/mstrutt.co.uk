@@ -14,7 +14,7 @@ const minifierOptions = {
   conservativeCollapse: true, // Always collapse to 1 space (never remove it entirely). Must be used in conjunction with collapseWhitespace=true
   continueOnParseError: true, // Handle parse errors instead of aborting.
   decodeEntities: true, // Use direct Unicode characters whenever possible
-  ignoreCustomFragments: [/\{\{[^}]+\}\}/], // Array of regex'es that allow to ignore certain fragments, when matched (e.g. <?php ... ?>, {{ ... }}, etc.)
+  ignoreCustomFragments: [/\{\{[^}]+\}\}/, /<\?xml.+\?>/], // Array of regex'es that allow to ignore certain fragments, when matched (e.g. <?php ... ?>, {{ ... }}, etc.)
   keepClosingSlash: true, // Keep the trailing slash on singleton elements
   minifyCSS: true, // Minify CSS in style elements and style attributes (uses clean-css) (could be true, Object, Function(text, type))
   minifyJS: true, // Minify JavaScript in script elements and event attributes (uses UglifyJS) (could be true, Object, Function(text, inline))
@@ -49,7 +49,7 @@ Promise.all(
   .then((folderDirectories) => {
     const fileList = folderDirectories
       .map((files, index) => {
-        const pattern = /[-a-z]+\.html/;
+        const pattern = /[-a-z]+\.(ht|x)ml/;
         return files
           .filter(file => file.match(pattern))
           .map((file) => ({

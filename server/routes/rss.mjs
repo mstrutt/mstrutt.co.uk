@@ -15,7 +15,7 @@ router.get('/rss.xml', (req, res) => {
         .sort()
         .reverse();
       return Promise.all([
-        readFilePromise('./app/rss.template.xml'),
+        readFilePromise('./dist/templates/rss.xml'),
         ...postList.map(filename => readFilePromise(`./blog/${filename}`))
       ]);
     })
