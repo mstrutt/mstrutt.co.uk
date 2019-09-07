@@ -1,0 +1,41 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {
+        "quotemark": {
+            "options": [
+                "single",
+                "avoid-escape"
+            ]
+        },
+        "variable-name": {
+            "options": [
+                "ban-keywords",
+                "check-format",
+                "require-const-for-all-caps",
+                "allow-snake-case",
+                "allow-pascal-case"
+            ]
+        }
+    },
+    "rules": {
+        "quotemark": {
+            "options": [
+                "single",
+                "avoid-escape"
+            ]
+        },
+        "variable-name": {
+            "options": [
+                "ban-keywords",
+                "check-format",
+                "require-const-for-all-caps",
+                "allow-snake-case",
+                "allow-pascal-case"
+            ]
+        }
+    },
+    "rulesDirectory": []
+}

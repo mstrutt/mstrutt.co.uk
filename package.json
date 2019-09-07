@@ -10,6 +10,7 @@
     "build-parcel": "parcel build app/template.html app/images/**/*",
     "build-rss": "cp app/templates/rss.xml dist/templates/rss.xml",
     "develop": "parcel watch app/template.html app/images/**/*",
+    "lint": "tslint -c tslint.json '{app,scripts,server}/**/*.{m,}js'",
     "serve": "node --experimental-modules ./server/index.mjs",
     "start": "npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +25,9 @@
     "marked": "^0.7.0",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-bundle-manifest": "^0.2.0",
-    "sass": "^1.16.0"
+    "sass": "^1.16.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.6.2"
   },
   "dependencies": {
     "compression": "^1.7.4",
