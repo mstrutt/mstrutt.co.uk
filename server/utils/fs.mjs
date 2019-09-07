@@ -1,5 +1,5 @@
 import fs from 'fs';
-import winston from 'winston';
+import logger from './logger.mjs';
 
 export function readdirPromise(directory) {
   return new Promise((resolve, reject) => {
@@ -32,7 +32,7 @@ export function writeFilePromise(filename, data) {
         reject(err);
         return;
       }
-      winston.debug(`Written: ${filename}`)
+      logger.debug(`Written: ${filename}`)
       resolve(filename);
     });
   });
