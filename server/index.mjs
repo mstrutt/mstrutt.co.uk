@@ -1,8 +1,8 @@
 import compression from 'compression';
 import dotenv from 'dotenv';
 import express from 'express';
-import https from 'https';
 import slash from 'express-slash';
+import https from 'https';
 
 // Setting up environment variables
 dotenv.config();
@@ -44,15 +44,15 @@ app.use(slash());
 
 if (process.env.NODE_ENV === 'production') {
   Promise.all([
-    readFilePromise(`${process.env.CERTIFICATES_FOLDER}/key.pem`),
+    readFilePromise(`${process.env.CERTIFICATES_FOLDER}/chain.pem`),
     readFilePromise(`${process.env.CERTIFICATES_FOLDER}/cert.pem`),
-    readFilePromise(`${process.env.CERTIFICATES_FOLDER}/chain.pem`)
+    readFilePromise(`${process.env.CERTIFICATES_FOLDER}/privkey.pem`),
   ])
-    .then(([key, cert, ca]) => {
+    .then(([ca, cert, key]) => {
       https.createServer({
-        key,
+        ca,
         cert,
-        ca
+        key,
       }, app).listen(process.env.HTTPS_PORT);
     })
     .catch((err) => {
