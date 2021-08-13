@@ -19,4 +19,8 @@ readdirPromise(`./${envFolder}/partials/`)
     return Promise.all(readingPartials);
   });
 
+squirrelly.defineHelper('currentYear', () => {
+  return new Date().getFullYear().toString();
+});
+
 export default squirrelly;
