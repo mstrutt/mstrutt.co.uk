@@ -26,9 +26,11 @@ readdirPromise(`${SRC_FOLDER}`)
           const body = marked(content.body);
           const date_formatted = new Date(content.attributes.date).toDateString();
           const url = getPostUrl(filename);
+          const reading_time = estimateReadingTime(content.body, body);
           const json = Object.assign({}, content.attributes, {
             body,
             date_formatted,
+            reading_time,
             url,
           });
           const outputFilename = formatFilename(filename);
@@ -67,4 +69,25 @@ function updateCategoryMap(categories, filename) {
     categoryMapping[category].push(filename);
     categoryMapping[category].sort().reverse();
   });
+}
+
+function estimateReadingTime(markdownBody, htmlBody) {
+  // Based off medium's calculation with a slightly lower base speed
+  // https://blog.medium.com/read-time-and-you-bc2048ab620c
+
+  const AVERAGE_WORDS_PER_MINUTE = 250;
+  const BASE_SECONDS_PER_IMAGE = 12;
+  const MIN_SECONDS_PER_IMAGE = 3;
+
+  const words = markdownBody.split(' ').filter((word) => !!word);
+  const textReadingTime = (words.length / AVERAGE_WORDS_PER_MINUTE) * 60;
+
+  let imageCount = 0;
+  const images = htmlBody.match(/<img .+>/g) || [];
+  const imageReadingTime = images.reduce((total) => {
+    return total + Math.max(BASE_SECONDS_PER_IMAGE - imageCount++, MIN_SECONDS_PER_IMAGE);
+  }, 0);
+
+  const readingTime = textReadingTime + imageReadingTime;
+  return `${Math.round(readingTime / 60) || 1} min`;
 }

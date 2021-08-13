@@ -17,14 +17,23 @@
             </svg>
             <time itemprop="datePublished" datetime="{{date}}" class="dt-published">{{date_formatted}}</time>
           </li>
+        {{/if}}
+        {{if(options.reading_time)}}
           <li class="metadata__item">
             <svg class="metadata__icon" height="22" width="22">
-              <title>Written by</title>
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#author"></use>
+              <title>Reading time</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#timer"></use>
             </svg>
-            <span itemprop="author" class="p-author h-card">Michael Strutt</span>
+            <span>{{reading_time}}</span>
           </li>
         {{/if}}
+        <li class="metadata__item">
+          <svg class="metadata__icon" height="22" width="22">
+            <title>Written by</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#author"></use>
+          </svg>
+          <span itemprop="author" class="p-author h-card">Michael Strutt</span>
+        </li>
       </ul>
     </div>
     <h1 class="blog-post__title">{{title}}</h1>
