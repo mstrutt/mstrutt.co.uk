@@ -32,13 +32,11 @@
       {{body}}
     </div>
   </div>
-  <!-- <footer class="single-post">
+  <footer class="single-post">
     {{if(options.categories && options.categories.length)}}
-      <p class="tags p-category">Categories: 
-        {{each(options.categories)}}
-          <a href="/blog/tags/{{@this}}/">{{@this}}.</a>
-        {{/each}}
+      <p class="tags p-category">Topics: 
+        {{each(options.categories)}}{{if(@index > 0)}}, {{/if}}<a href="/blog/tags/{{@this}}/">{{@this}}</a>{{/each}}.
       </p>
     {{/if}}
-  </footer> -->
+  </footer>
 </article>

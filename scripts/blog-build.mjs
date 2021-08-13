@@ -15,9 +15,11 @@ marked.setOptions({
   gfm: true,
 });
 
+const categoryMapping = {};
+
 readdirPromise(`${SRC_FOLDER}`)
-  .then((filesnames) => {
-    const processing = filesnames.map((filename) => {
+  .then((filenames) => {
+    const processing = filenames.map((filename) => {
       return readFilePromise(`${SRC_FOLDER}/${filename}`)
         .then((file) => {
           const content = frontMatter(file);
@@ -29,12 +31,17 @@ readdirPromise(`${SRC_FOLDER}`)
             date_formatted,
             url,
           });
-          const stringified = JSON.stringify(json, null, 2);
           const outputFilename = formatFilename(filename);
+          const stringified = JSON.stringify(json, null, 2);
+          updateCategoryMap(json.categories, outputFilename);
           return writeFilePromise(`${DIST_FOLDER}/${outputFilename}`, stringified);
         });
     });
     return Promise.all(processing);
+  })
+  .then(() => {
+    const stringified = JSON.stringify(categoryMapping, null, 2);
+    writeFilePromise(`${DIST_FOLDER}/_category-mapping.json`, stringified);
   })
   .catch((err) => logger.error(err));
 
@@ -46,4 +53,18 @@ function formatFilename(filename) {
 function getPostUrl(filename) {
   const parts = filename.match(/(\d+)-(\d+)-\d+-(.+)\.(markdown|md)/);
   return `/blog/${parts[1]}/${parts[2]}/${parts[3]}/`;
+}
+
+function updateCategoryMap(categories, filename) {
+  if (!categories || !categories.length) {
+    return;
+  }
+
+  categories.forEach((category) => {
+    if (!categoryMapping[category]) {
+      categoryMapping[category] = [];
+    }
+    categoryMapping[category].push(filename);
+    categoryMapping[category].sort().reverse();
+  });
 }

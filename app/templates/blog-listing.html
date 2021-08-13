@@ -3,7 +3,14 @@
     {{include('breadcrumbs')/}}
     {{if(options.posts.length === 0)}}
       <h2>No results</h2>
-      <p>No blog posts found for this time period.</p>
+      <p>
+        No blog posts found
+        {{if(options.params.tag)}}
+          tagged with {{options.params.tag}}
+        {{#else}}
+          for this time period.
+        {{/if}}
+      </p>
     {{/if}}
   </div>
   {{each(options.posts)}}
