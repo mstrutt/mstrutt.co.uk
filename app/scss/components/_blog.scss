@@ -49,9 +49,9 @@
         left: 0;
         right: 0;
         top: 0;
+      }
     }
   }
-}
 
   &__heading {
     margin-top: 0;
@@ -80,5 +80,37 @@
   h1, h2, h3, h4, h5, h6 {
     margin: 1.2em 0 .8em;
   }
+
+  blockquote {
+    border-left: 4px solid $blockquote-border-color;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.4em;
+    margin-left: 0;
+    padding: .5em 0 .5em 1.2em;
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > p:last-child {
+      margin-bottom: 0;
+    }
+
+    &.excerpt {
+      border-left-color: $blockquote-border-color--excerpt;
+      font-size: 1.1em;
+    }
+  }
+
+  q {
+    font-style: italic;
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
   }
 }
