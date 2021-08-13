@@ -30,9 +30,7 @@ router.get('/blog/:year(\\d+)/(:month(\\d+)/)?', (req, res) => {
   readdirPromise('./blog')
     .then((files) => {
       const postList = files
-        .filter((filename) => filename.match(pattern))
-        .sort()
-        .reverse();
+        .filter((filename) => filename.match(pattern));
       return renderPostList(postList, title, req.params);
     })
     .then((page) => res.send(page))

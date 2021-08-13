@@ -9,10 +9,12 @@ export default function renderPostList(postList, title = 'Blog', params = {}) {
     ...postList.map((filename) => readFilePromise(`./blog/${filename}`)),
   ])
     .then(([listTemplate, pageTemplate, ...files]) => {
-      const filesJSON = files.map((file) => JSON.parse(file));
+      const posts = files
+        .map((file) => JSON.parse(file))
+        .sort((a, b) => a.date < b.date ? 1 : -1);
       const main = squirrelly.Render(listTemplate, {
         params,
-        posts: filesJSON,
+        posts,
         title,
       });
       return squirrelly.Render(pageTemplate, {
