@@ -32,10 +32,14 @@
       {{body}}
     </div>
   </div>
-  <footer class="single-post">
+  <footer class="blog-post__footer">
     {{if(options.categories && options.categories.length)}}
-      <p class="tags p-category">Topics: 
-        {{each(options.categories)}}{{if(@index > 0)}}, {{/if}}<a href="/blog/tags/{{@this}}/">{{@this}}</a>{{/each}}.
+      <p class="tags p-category">
+        <svg class="tags__icon" height="22" width="22">
+          <title>Tagged with</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#tag"></use>
+        </svg>
+        {{each(options.categories)}}{{if(@index > 0)}}, {{/if}}<a class="tags__item" href="/blog/tags/{{@this}}/">{{@this}}</a>{{/each}}.
       </p>
     {{/if}}
   </footer>
