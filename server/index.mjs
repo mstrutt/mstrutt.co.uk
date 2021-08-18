@@ -12,6 +12,7 @@ import logger from './utils/logger.mjs';
 
 // Middleware
 import fourOhFourMiddleware from './middleware/four-oh-four.mjs';
+import secureUpgradeMiddleware from './middleware/secure-upgrade.mjs';
 
 // Routes
 import blogListingRoutes from './routes/blog-listing.mjs';
@@ -31,6 +32,8 @@ app.enable('strict routing');
 
 app.use(express.static('./dist'));
 app.use('/.well-known/acme-challenge/', express.static('./.well-known/acme-challenge'));
+
+app.use(secureUpgradeMiddleware);
 
 app.use(indexRoutes);
 app.use(blogListingRoutes);
