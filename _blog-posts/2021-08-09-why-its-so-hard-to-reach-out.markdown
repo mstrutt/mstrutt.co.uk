@@ -3,6 +3,8 @@ layout: post
 title: Why it's so hard to reach out
 preview: 'When I shared my story about my journey with mental health, I expected to get a range of reactions. The reception I received was overwhelmingly positive, but there was one kind of reaction from a few people that I really hadn’t anticipated: they were surprised that I hadn’t said something sooner.'
 date: 2021-08-13 10:23:00
+image: /images/blog/why-its-so-hard-to-reach-out.png
+image_alt: '"What’s the best way I can support you right now?"'
 categories:
 - mental health
 - anxiety

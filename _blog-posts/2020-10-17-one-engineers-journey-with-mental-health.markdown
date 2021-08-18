@@ -3,6 +3,8 @@ layout: post
 title: One Engineer's Journey with Mental Health
 preview: In light of World Mental Health Day and the increasing spotlight that mental health has seen this year, I would like to share my story, as both a person and an Engineer
 date: 2020-10-17 09:00:00
+image: /images/blog/how-are-you-really.jpg
+image_alt: "How are you, really?"
 categories:
 - mental health
 - anxiety
