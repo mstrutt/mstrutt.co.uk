@@ -20,10 +20,14 @@ export default function (req, res, next) {
   };
 
   const options = {
-    hostname: req.headers.host,
+    hostname: req.get('host'),
     path: req.url,
     method: 'GET'
   };
+
+  if (process.env.HTTPS_PORT) {
+    options.port = HTTPS_PORT;
+  }
   
   const secureCheckRequest = https.request(options, (secureCheckResponse) => {
     secureCheckResponse.on('data', () => {
