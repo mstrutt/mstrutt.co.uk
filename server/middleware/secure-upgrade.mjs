@@ -26,7 +26,7 @@ export default function (req, res, next) {
   };
 
   if (process.env.HTTPS_PORT) {
-    options.port = HTTPS_PORT;
+    options.port = process.env.HTTPS_PORT;
   }
   
   const secureCheckRequest = https.request(options, (secureCheckResponse) => {
