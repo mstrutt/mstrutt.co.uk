@@ -30,7 +30,7 @@ app.use(compression());
 app.enable('strict routing');
 
 app.use(express.static('./dist'));
-app.use('/.well-known/.acme-challenge/', express.static('./.well-known/.acme-challenge'));
+app.use('/.well-known/acme-challenge/', express.static('./.well-known/acme-challenge'));
 
 app.use(indexRoutes);
 app.use(blogListingRoutes);
