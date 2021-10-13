@@ -15,21 +15,15 @@
     position: relative;
     
     .social-links {
-      justify-content: flex-end;
+      justify-content: flex-start;
     }
   }
   
   &--home {
-    padding-bottom: 0;
     text-align: center;
 
-    @media (min-width: 510px) {
-      padding-top: calc(30% - 80px);
-    }
-
-    @media (min-width: $bp-medium) {
-      min-height: 430px;
-      padding-top: 0;
+    @media (min-width: $bp-x-small) {
+      text-align: left;
     }
   }
 
@@ -46,15 +40,9 @@
     #{$block}--home & {
       @media (min-width: $bp-x-small) {
         padding-bottom: 1.5em;
-        padding-left: 35%;
-        text-align: right;
-      }
-      
-      @media (min-width: $bp-large) {
-        padding-left: $header-max-width * .35;
       }
   
-      @media (min-width: $bp-x-wide) {
+      @media (min-width: $bp-nav-move) {
         max-width: $header-max-width;
       }
     }
@@ -101,7 +89,7 @@
 
     #{$block}--home & {
       @media (min-width: $bp-nav-move) {
-        position: static;
+        top: 7px;
       }
     }
   }

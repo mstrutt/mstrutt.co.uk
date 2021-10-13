@@ -31,15 +31,9 @@
       right: 0;
       top: 0;
     }
-  }
 
-  @media (min-width: $bp-nav-move + 200px) {
-    margin-right: 450px;
-  }
-
-  &--home {
-    @media (min-width: $bp-nav-move) {
-      top: 30px;
+    &--home {
+      top: 50px;
     }
   }
 

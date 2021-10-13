@@ -5,7 +5,7 @@ $avatar-transition-easing: $bounce-easing;
 
 $header-padding: 1em;
 $header-border-size: 10px;
-$header-max-width: 44em;
+$header-max-width: 33em;
 
 $logo-size: 100px;
 $logo-spacing: 10px;
@@ -22,4 +22,5 @@ $bp-large: 850px;
 $bp-x-wide: 1000px;
 
 $bp-nav-move: $bp-x-wide;
+$bp-nav-wide: $bp-x-wide + 200px;
 $bp-logo-move: $bp-small;
