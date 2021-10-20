@@ -4,3 +4,4 @@ dist
 *.log
 .env
 .well-known/acme-challenge/*
+.DS_Store
