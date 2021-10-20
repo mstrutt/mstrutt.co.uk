@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why I don't work on Wednesdays anymore
+title: Why I don't work Wednesdays anymore
 preview: As I write this article, I’m 31 years old. I’m not married. I don’t have kids, or anyone who’s dependent on me in any way. I’m not studying for a new qualification, or any of the other classic reasons to work part-time. For me that’s precisely why it’s the perfect time to start this new chapter in my life.
 date: 2021-10-20 09:59:00
 image: /images/blog/work-life-balance.jpg
