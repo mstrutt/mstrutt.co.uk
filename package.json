@@ -25,7 +25,7 @@
     "marked": "^0.7.0",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-bundle-manifest": "^0.2.0",
-    "sass": "^1.16.0",
+    "sass": "^1.43.2",
     "tslint": "^5.19.0",
     "typescript": "^3.6.2"
   },

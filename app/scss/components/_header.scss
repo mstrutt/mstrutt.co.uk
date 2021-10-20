@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../colours';
 @import '../vars';
 
@@ -77,14 +79,14 @@
 
     @media (min-width: $bp-logo-move) {
       left: auto;
-      right: $nav-link-size / 2;
-      top: $logo-size / -2;
+      right: $nav-link-size * 0.5;
+      top: math.div($logo-size, -2);
     }
 
     @media (min-width: $bp-nav-move) {
       left: 100%;
       right: auto;
-      top: calc(100% - #{$logo-size / 2});
+      top: calc(100% - #{$logo-size * 0.5});
     }
 
     #{$block}--home & {
