@@ -4,7 +4,7 @@ import logger from '../utils/logger';
 
 const SECURE_CHECK_TIMEOUT_MS = 1000;
 
-export default function (req, res, next) {
+export default function(req, res, next) {
   if (req.secure) {
     next();
     return;
@@ -21,14 +21,14 @@ export default function (req, res, next) {
 
   const options = {
     hostname: req.get('host'),
+    method: 'GET',
     path: req.url,
-    method: 'GET'
   };
 
   if (process.env.HTTPS_PORT) {
     options.port = process.env.HTTPS_PORT;
   }
-  
+
   const secureCheckRequest = https.request(options, (secureCheckResponse) => {
     secureCheckResponse.on('data', () => {
       if (responded) {
@@ -43,7 +43,7 @@ export default function (req, res, next) {
       done();
     });
   });
-  
+
   secureCheckRequest.on('error', (e) => {
     if (responded) {
       return;
