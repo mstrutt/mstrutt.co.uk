@@ -22,7 +22,7 @@
     "babel-polyfill": "^6.26.0",
     "front-matter": "^3.0.2",
     "html-minifier": "^4.0.0",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-bundle-manifest": "^0.2.0",
     "sass": "^1.43.2",
