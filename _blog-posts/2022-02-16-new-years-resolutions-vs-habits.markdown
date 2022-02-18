@@ -2,7 +2,7 @@
 layout: post
 title: New Year's Resolutions going up in smoke? Try habits instead
 preview: It’s February - which, by now, is usually the point in the year where I realise I’ve already failed most of my _New Year’s Resolutions_. This year though, I’ve approached things a little differently. I’ve swapped my goals for habits.
-date: 2022-02-16 15:56:00
+date: 2022-02-18 16:35:00
 image: /images/blog/new-years-resolutions.jpg
 image_alt: 'Fireworks visible though a haze of smoke'
 hero: /images/blog/new-years-resolutions-hero.jpg
