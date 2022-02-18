@@ -5,7 +5,11 @@ preview: It’s February - which, by now, is usually the point in the year where
 date: 2022-02-16 15:56:00
 image: /images/blog/new-years-resolutions.jpg
 image_alt: 'Fireworks visible though a haze of smoke'
-image_credit: Photo by [Mike Enerio](https://unsplash.com/@mikeenerio) on [Unsplach](https://unsplash.com/).
+hero: /images/blog/new-years-resolutions-hero.jpg
+hero_m: /images/blog/new-years-resolutions-hero-m.jpg
+hero_xl: /images/blog/new-years-resolutions-hero-xl.jpg
+hero_credit: Photo by [Mike Enerio](https://unsplash.com/@mikeenerio) on [Unsplash](https://unsplash.com/).
+hero_colour: '#26283F'
 categories:
 - habits
 - new years resolutions
