@@ -13,6 +13,7 @@ hero_colour: '#26283F'
 categories:
 - habits
 - new years resolutions
+- goals
 - wellbeing
 - reflection
 ---
@@ -45,7 +46,7 @@ I remembered seeing online about a habit tracking system where there was a stenc
 
 I remembered I have a strange little notebook that a friend gave me. Each two-page-spread in this book has a picture on the left page, and only twelve lines on the right (the top half is blank - I’ll get to this later). I’d struggled previously to think of a use for it, until I realised it is perfect for tracking my habits.
 
-FInally, in order to give this change the greatest chance at success, I started right away, on the last day of November, when I could so easily have set it as a New Year’s Resolution and put it off until January.
+Finally, in order to give this change the greatest chance at success, I started right away, on the last day of November, when I could so easily have set it as a New Year’s Resolution and put it off until January.
 
 ## My process for building habits
 
