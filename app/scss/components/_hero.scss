@@ -1,0 +1,75 @@
+.has-hero {
+  main {
+    padding-top: $hero-target-height;
+    position: relative;
+
+    @media (min-width: #{$hero-smallest-overlap-width}) {
+      padding-top: $hero-padding-top;
+    }
+
+    @media (min-width: #{$hero-max-width}) {
+      padding-top: $hero-max-height * ($hero-padding-top / $hero-target-height);
+    }
+  }
+
+  .nav-bar {
+    @media (min-width: #{$hero-smallest-overlap-width}) {
+      top: $hero-padding-top;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      margin-right: ($max-line-length / 2) + $hero-post-gutter-x;
+      margin-top: 120px;
+    }
+
+    @media (min-width: #{$hero-max-width}) {
+      top: $hero-max-height * ($hero-padding-top / $hero-target-height);
+    }
+  }
+
+  .blog-post {
+    background-color: white;
+    box-shadow: 0 $hero-post-gutter-y 0 $hero-post-gutter-x white;
+
+    @media (min-width: #{$hero-smallest-overlap-width}) {
+      position: relative;
+
+      &::before {
+        box-shadow: 0 $hero-post-gutter-y 7px $hero-post-gutter-x $default-shadow-color;
+        content: '';
+        display: block;
+        height: $hero-shadow-height;
+        max-height: $hero-shadow-max-height;
+        min-height: $hero-shadow-min-height;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+
+        @media (min-width: #{$bp-x-wide}) {
+          min-height: 200px;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: $hero-target-height;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+
+  @media (min-width: #{$hero-max-width}) {
+    height: $hero-max-height;
+  }
+}

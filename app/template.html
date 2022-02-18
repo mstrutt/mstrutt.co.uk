@@ -7,13 +7,13 @@
     <title>{{title}} - MStrutt.co.uk</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="./scss/app.scss">
     <link rel="icon" href="./favicon.ico">
 
     {{include('metadata')/}}
   </head>
-  <body>
+  <body class="{{if(options.hero)}}has-hero{{/if}}">
     <div style="display: none">
       {{include('icons')/}}
     </div>

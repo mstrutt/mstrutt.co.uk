@@ -5,6 +5,11 @@ preview: As I write this article, I’m 31 years old. I’m not married. I don�
 date: 2021-10-20 09:59:00
 image: /images/blog/work-life-balance.jpg
 image_alt: 'Man balancing along a log in a forrest'
+hero: /images/blog/work-life-balance-hero.jpg
+hero_m: /images/blog/work-life-balance-hero-m.jpg
+hero_xl: /images/blog/work-life-balance-hero-xl.jpg
+hero_credit: Photo by [Jon Flobrant](https://unsplash.com/@jonflobrant) on [Unsplash](https://unsplash.com/).
+hero_colour: '#112617'
 categories:
 - mental health
 - wellbeing
@@ -42,7 +47,7 @@ I’ve also grown a lot since I started therapy at the beginning of 2020, and as
 
 As I said at the beginning of this article, It’s the perfect time to take some more time for myself right now. I’m in a very fortunate position in life. I had a comfortable start and I’ve worked hard to get to a good position at work. I have a mortgage locked at an affordable rate. I have savings for the future that I can fall back on if really needed. I can afford to take a 20% pay cut in order to work 4 days a week, and all that really means for me financially is that I won’t put as much into savings each month.
 
-I honestly didn’t think there would ever be a better time to give part-time working a go. So I did. 
+I honestly didn’t think there would ever be a better time to give part-time working a go. So I did.
 
 
 ## How I made the switch
@@ -87,7 +92,7 @@ Sometimes, I fall back into the monetary mindset and think about how much less I
 
 ## Will it be forever?
 
-Maybe. I hope so! I don’t have any great desire to go back to working a 40 hour, 5 day week. I’m a realist though, I understand that it’s quite likely a time will come when I go back to full-time employment for the sake of the extra 20% pay, even if just temporarily. 
+Maybe. I hope so! I don’t have any great desire to go back to working a 40 hour, 5 day week. I’m a realist though, I understand that it’s quite likely a time will come when I go back to full-time employment for the sake of the extra 20% pay, even if just temporarily.
 
 Given time, maybe the rest of the world will [follow in the footsteps of Iceland](https://www.bbc.co.uk/news/business-57724779) and working 4 days a week will become the norm. I’d love to see it happen, but I think it’s a little way off yet.
 
