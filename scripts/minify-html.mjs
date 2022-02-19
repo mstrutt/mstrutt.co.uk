@@ -99,10 +99,10 @@ Promise.all(
       const outputFilename = `${outputDir(file.folder)}/${file.name}`;
       return writeFilePromise(outputFilename, minifiedFile)
         .then(() => {
-          logger.log(`${file.folder}/${file.name} minified`);
+          logger.info(`${file.folder}/${file.name} minified`);
         });
     });
     return Promise.all(writingFiles);
   })
-  .then(() => logger.log('Done!'))
+  .then(() => logger.info('All files minified successfully.'))
   .catch((err) => logger.error(err));
