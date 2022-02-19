@@ -27,9 +27,11 @@ readdirPromise(`${SRC_FOLDER}`)
           const date_formatted = new Date(content.attributes.date).toDateString();
           const url = getPostUrl(filename);
           const reading_time = estimateReadingTime(content.body, body);
+          const headings = getHeadings(body);
           const json = Object.assign({}, content.attributes, {
             body,
             date_formatted,
+            headings,
             reading_time,
             url,
           });
@@ -68,6 +70,18 @@ function updateCategoryMap(categories, filename) {
     }
     categoryMapping[category].push(filename);
     categoryMapping[category].sort().reverse();
+  });
+}
+
+function getHeadings(htmlBody) {
+  const headingRegExp = '<h(\\d) id="(.+)">(.+)</h\\d>';
+  return (htmlBody.match(new RegExp(headingRegExp, 'g')) || []).map((heading) => {
+    const match = heading.match(new RegExp(headingRegExp)).slice(1);
+    return {
+      id: match[1],
+      level: match[0],
+      text: match[2],
+    }
   });
 }
 

@@ -1,0 +1,32 @@
+.toc {
+  float: right;
+  position: sticky;
+  top: 1em;
+  width: calc((100vw - #{$max-line-length} - 6em) / 2);
+
+  &__list {
+    font-size: .9em;
+    margin: 0;
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__link {
+    &--level-1,
+    &--level-2 {
+      padding-left: 0;
+    }
+
+    &--level-3 {
+      padding-left: 1.5rem;
+    }
+
+    &--level-4,
+    &--level-5,
+    &--level-6 {
+      padding-left: 3rem;
+    }
+  }
+}

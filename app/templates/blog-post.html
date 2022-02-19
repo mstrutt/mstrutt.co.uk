@@ -28,6 +28,15 @@
     {{/if}}
   </div>
 {{/if}}
+<aside class="toc">
+  <ul class="toc__list u-unstyled-list">
+    {{each(options.headings)}}
+      <li class="toc__item">
+        <a class="toc__link toc__link--level-{{@this.level}}" href="#{{@this.id}}">{{@this.text}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</aside>
 <article itemscope="" itemtype="http://schema.org/BlogPosting" class="blog-post body-copy h-entry">
   <div itemprop="articleBody" class="e-content">
     <h1 class="blog-post__title">{{title}}</h1>
