@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .has-hero {
   main {
     padding-top: $hero-target-height;
@@ -8,7 +10,7 @@
     }
 
     @media (min-width: #{$hero-max-width}) {
-      padding-top: $hero-max-height * ($hero-padding-top / $hero-target-height);
+      padding-top: $hero-max-height * math.div($hero-padding-top, $hero-target-height);
     }
   }
 
@@ -22,20 +24,22 @@
     }
 
     @media (min-width: 1000px) {
-      margin-right: ($max-line-length / 2) + $hero-post-gutter-x;
+      margin-right: math.div($max-line-length, 2) + $hero-post-gutter-x;
       margin-top: 120px;
     }
 
     @media (min-width: #{$hero-max-width}) {
-      top: $hero-max-height * ($hero-padding-top / $hero-target-height);
+      top: $hero-max-height * math.div($hero-padding-top, $hero-target-height);
     }
   }
 
   .blog-post {
     background-color: white;
     box-shadow: 0 $hero-post-gutter-y 0 $hero-post-gutter-x white;
+    padding-top: .75em;
 
     @media (min-width: #{$hero-smallest-overlap-width}) {
+      padding-top: 0;
       position: relative;
 
       &::before {
@@ -66,10 +70,60 @@
   overflow: hidden;
   position: absolute;
   right: 0;
+  text-align: right;
   top: 0;
-  z-index: -1;
 
   @media (min-width: #{$hero-max-width}) {
     height: $hero-max-height;
+  }
+
+  &__aria-img {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__attribution {
+    color: rgba(255, 255, 255, .9) !important;
+    display: inline-block;
+    font-size: .7em;
+    padding: .5em;
+    position: absolute;
+    right: 1em;
+    text-decoration: none;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .80);
+    top: 1em;
+
+    @media (min-width: #{$hero-smallest-overlap-width}) {
+      top: 2em;
+      right: 2em;
+    }
+  }
+
+  %attribution-els {
+    display: inline-block;
+    transition: opacity .25s;
+    vertical-align: middle;
+  }
+
+  &__attribution:focus %attribution-els,
+  &__attribution:hover %attribution-els {
+    opacity: 1;
+  }
+
+  &__attribution-icon {
+    @extend %attribution-els;
+    opacity: .6;
+  }
+
+  &__attribution-text {
+    @extend %attribution-els;
+    opacity: 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

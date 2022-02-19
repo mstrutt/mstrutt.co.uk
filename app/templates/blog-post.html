@@ -11,7 +11,22 @@
       .hero { background-image: url({{hero_xl}}); }
     }
   </style>
-  <div class="hero"></div>
+  <div class="hero">
+    {{if(options.image_alt)}}
+      <span class="hero__aria-img" role="img" aril-label="{{image_alt}}" {{if(options.hero_credit_text)}}aria-describedby="hero-attribution-text"{{/if}}></span>
+    {{/if}}
+    {{if(options.hero_credit_link)}}
+      <a href="{{hero_credit_link}}" class="hero__attribution">
+        {{if(options.hero_credit_text)}}
+          <span id="hero-attribution-text" class="hero__attribution-text">{{hero_credit_text}}</span>
+        {{/if}}
+        <svg height="24" width="24" class="hero__attribution-icon">
+          <title>Photographer</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#camera"></use>
+        </svg>
+      </a>
+    {{/if}}
+  </div>
 {{/if}}
 <article itemscope="" itemtype="http://schema.org/BlogPosting" class="blog-post body-copy h-entry">
   <div itemprop="articleBody" class="e-content">

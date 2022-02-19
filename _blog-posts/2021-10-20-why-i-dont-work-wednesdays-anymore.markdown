@@ -8,7 +8,8 @@ image_alt: 'Man balancing along a log in a forrest'
 hero: /images/blog/work-life-balance-hero.jpg
 hero_m: /images/blog/work-life-balance-hero-m.jpg
 hero_xl: /images/blog/work-life-balance-hero-xl.jpg
-hero_credit: Photo by [Jon Flobrant](https://unsplash.com/@jonflobrant) on [Unsplash](https://unsplash.com/).
+hero_credit_link: https://unsplash.com/@jonflobrant
+hero_credit_text: Photo by Jon Flobrant on Unsplash
 hero_colour: '#112617'
 categories:
 - mental health

@@ -8,7 +8,8 @@ image_alt: 'Fireworks visible though a haze of smoke'
 hero: /images/blog/new-years-resolutions-hero.jpg
 hero_m: /images/blog/new-years-resolutions-hero-m.jpg
 hero_xl: /images/blog/new-years-resolutions-hero-xl.jpg
-hero_credit: Photo by [Mike Enerio](https://unsplash.com/@mikeenerio) on [Unsplash](https://unsplash.com/).
+hero_credit_text: Photo by Mike Enerio on Unsplash
+hero_credit_link: https://unsplash.com/@mikeenerio
 hero_colour: '#26283F'
 categories:
 - habits
