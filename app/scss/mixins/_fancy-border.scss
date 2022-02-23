@@ -1,5 +1,7 @@
+@import 'var';
+
 @mixin fancy-border {
-  border: 1px solid $header-border;
+  @include var(border, 1px solid, fancy-border-color);
   border-width: 1px 0;
   content: '';
   display: block;

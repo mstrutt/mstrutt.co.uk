@@ -100,7 +100,7 @@
   }
 
   blockquote {
-    border-left: 4px solid $blockquote-border-color;
+    @include var(border-left, 4px solid, blockquote-border-color);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.4em;
     margin-left: 0;
@@ -115,7 +115,7 @@
     }
 
     &.excerpt {
-      border-left-color: $blockquote-border-color--excerpt;
+      @include var(border-left-color, blockquote-border-color--excerpt);
       font-size: 1.1em;
     }
   }

@@ -1,0 +1,17 @@
+@import '../colors';
+
+@mixin var($one, $two, $three: false) {
+  @if $three {
+    $property: $one;
+    $rules: $two;
+    $color: $three;
+    #{$property}: #{$rules} map-get($colors, $color);
+    #{$property}: #{$rules} var(--c-#{$color});
+  }
+  @else {
+    $property: $one;
+    $color: $two;
+    #{$property}: map-get($colors, $color);
+    #{$property}: var(--c-#{$color});
+  }
+}

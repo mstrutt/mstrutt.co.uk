@@ -1,0 +1,107 @@
+// Raw colour variables (generated names: https://coolors.co/776178-bfd75f-3680ad-404040-d1d1d1)
+$oldlavender: #776178;
+$dimgray: #6a526b;
+$eggplant: #614b62;
+$junebud: #bfd75f;
+$junebud--dark: #a3b94e;
+$steelblue: #3680ad;
+$lapislazuli: #2274a5;
+$bluesaphire: #1c5f88;
+$blackolive: #404040;
+$ghostwhite: #f8f8f8;
+$lightgray: #d1d1d1;
+
+$rgbagray: rgba(63, 63, 63, .3);
+
+$colors: (
+  background: $junebud,
+  background-alt: white,
+  body-text: $blackolive,
+
+  blockquote-border-color: $junebud,
+  blockquote-border-color--excerpt: $lightgray,
+
+  code-background: $ghostwhite,
+  code-border-color: $lightgray,
+
+  link: $lapislazuli,
+  link--hover: $steelblue,
+  link--visited: $dimgray,
+  link--visited-hover: $oldlavender,
+
+  nav-link: $bluesaphire,
+  nav-link--hover: $lapislazuli,
+  nav-link--visited: $eggplant,
+  nav-link-text: white,
+  nav-link-page-corner: #d6e9f5,
+
+  button-background: $lapislazuli,
+  button-background--hover: $steelblue,
+  button-background-alt: $blackolive,
+  button-text: white,
+  button-icon-shadow-color: rgba(0, 0, 0, .16),
+
+  header-background: $junebud,
+  header-border: $rgbagray,
+  header-text: $blackolive,
+
+  fancy-border-color: $rgbagray,
+
+  default-shadow-color: rgba(0, 0, 0, .3),
+
+  banner-background-color: $lightgray,
+  banner-border-color: rgba(0, 0, 0, .2),
+  banner-close-button: #888,
+
+  logo-background: #3e3e3e,
+  logo-text-color: white,
+
+  social-link: $rgbagray,
+  social-link--hover: rgba($rgbagray, .6),
+  social-link-icon: white,
+);
+
+$colors--dark-theme: (
+  background: $junebud--dark,
+  background-alt: #1e1e1e,
+  body-text: #e8e8e8,
+
+  blockquote-border-color: $junebud--dark,
+  blockquote-border-color--excerpt: rgba(map-get($colors, blockquote-border-color--excerpt), .45),
+
+  code-background: rgba(map-get($colors, code-background), .1),
+  code-border-color: rgba(map-get($colors, code-border-color), .3),
+
+  link: #2a8ec9,
+  link--hover: #4bb2f1,
+  link--visited: #9f7ba0,
+  link--visited-hover: #c29ec3,
+
+  button-background: #2a8ec9,
+  button-background--hover: #4bb2f1,
+  button-background-alt: #292929,
+  button-icon-shadow-color: #1e1e1e,
+
+  header-background: $junebud--dark,
+
+  fancy-border-color: rgba(map-get($colors, fancy-border-color), .7),
+  default-shadow-color: rgba(map-get($colors, default-shadow-color), .5),
+
+  banner-background-color: rgba(map-get($colors, banner-background-color), .15),
+  banner-close-button: #1e1e1e,
+
+  social-link: rgba(map-get($colors, social-link), .4),
+  social-link--hover: rgba(map-get($colors, social-link--hover), .7),
+);
+
+:root {
+  @each $name, $color in $colors {
+    --c-#{$name}: #{$color};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @each $name, $color in $colors--dark-theme {
+      --c-#{$name}: #{$color};
+    }
+  }
+}

@@ -1,6 +1,3 @@
-@import '../colours';
-@import '../vars';
-
 .nav-bar {
   display: flex;
   padding-left: ($logo-size * 1.01) + ($logo-spacing * 2);
@@ -22,8 +19,7 @@
     z-index: 2;
 
     &::after {
-      background-color: black;
-      box-shadow: -1px 0 3px 1px $default-shadow-color;
+      @include var(box-shadow, 0 0 $hero-shadow-size 1px, default-shadow-color);
       bottom: 0;
       content: '';
       display: block;
@@ -50,13 +46,21 @@
 
     &,
     &:visited {
-      color: $nav-link;
+      @include var(color, nav-link);
+
+      @media (prefers-color-scheme: dark) and (max-width: #{$bp-nav-move - 1px}) {
+        @include var(color, link);
+      }
     }
 
     &:focus,
     &:hover,
     &:visited:hover {
-      color: $nav-link--hover;
+      @include var(color, nav-link--hover);
+
+      @media (prefers-color-scheme: dark) and (max-width: #{$bp-nav-move - 1px}) {
+        @include var(color, link--hover);
+      }
     }
 
     @media (min-width: $bp-nav-move) {
@@ -69,15 +73,15 @@
 
       &,
       &:visited {
-        background-color: $nav-link;
-        color: #fff;
+        @include var(background-color, nav-link);
+        @include var(color, nav-link-text);
       }
 
       &:focus,
       &:hover,
       &:visited:hover {
-        background-color: $nav-link--hover;
-        color: #fff;
+        @include var(background-color, nav-link--hover);
+        @include var(color, nav-link-text);
       }
 
       &--active {
@@ -85,9 +89,10 @@
       }
 
       &--active::before {
-        border: 8px solid #d6e9f5;
+        border: 8px solid;
+        @include var(border-color, nav-link-page-corner);
         border-radius: 0 0 8px 0;
-        box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, .4);
+        box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, .4); // @TODO
         content: '';
         display: block;
         height: 0;

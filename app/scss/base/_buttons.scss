@@ -1,23 +1,21 @@
-@import '../colours';
-
 button {
-  background: $button-background;
+  @include var(background, button-background);
   border: 0 none;
   border-radius: .2em;
-  color: $button-text;
+  @include var(color, button-text);
   font-family: inherit;
   font-size: inherit;
   padding: .5em .75em;
 
   &:hover,
   &:focus {
-    background: $button-background--hover;
+    @include var(background, button-background--hover);
   }
 }
 
 .button {
   align-items: center;
-  background-color: #404040;
+  @include var(background-color, button-background-alt);
 	border-radius: 5px;
 	border: 0 none;
 	cursor: pointer;
@@ -33,7 +31,7 @@ button {
   &:visited,
   &:hover,
   &:visited:hover {
-    color: white;
+    @include var(color, button-text);
   }
 
   &:active {
@@ -45,7 +43,7 @@ button {
 		height: 4rem;
 		width: 4rem;
     margin-left: 1.5rem;
-    background-color: rgba(0, 0, 0, .16);
+    @include var(background-color, button-icon-shadow-color);
     padding: .5rem;
 	}
 }

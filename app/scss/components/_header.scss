@@ -1,26 +1,25 @@
 @use "sass:math";
 
-@import '../colours';
-@import '../vars';
-
 .header {
   $block: &;
 
-  background-color: $header-background;
-  border-bottom: $header-border-size solid $header-border;
+  @include var(background-color, header-background);
+  border-bottom: $header-border-size solid;
+  @include var(border-bottom-color, header-border);
+  @include var(color, header-text);
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
   padding: $header-padding $header-padding calc(#{$header-padding} - #{$header-border-size});
-  
+
   @media (min-width: $bp-x-small) {
     position: relative;
-    
+
     .social-links {
       justify-content: flex-start;
     }
   }
-  
+
   &--home {
     text-align: center;
 
@@ -38,12 +37,12 @@
     @media (min-width: $bp-nav-move) {
       position: relative;
     }
-    
+
     #{$block}--home & {
       @media (min-width: $bp-x-small) {
         padding-bottom: 1.5em;
       }
-  
+
       @media (min-width: $bp-nav-move) {
         max-width: $header-max-width;
       }
@@ -51,7 +50,7 @@
   }
 
   &__logo {
-    background: #3E3E3E;
+    @include var(background, logo-background);
     border-radius: 50%;
     display: inline-block;
     font-size: 38px;
@@ -65,12 +64,16 @@
     transform: rotate(-7.5deg) scale(1.01);
     width: $logo-size;
     z-index: 2;
-    
+
+    @media (prefers-color-scheme: dark) {
+      @include var(box-shadow, 0 0 2px, default-shadow-color);
+    }
+
     &,
     &:visited,
     &:hover,
     &:visited:hover {
-      color: #FFF;
+      @include var(color, logo-text-color);
     }
 
     @media (min-width: $bp-x-small) {

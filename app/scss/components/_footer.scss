@@ -14,9 +14,14 @@
   }
 
   &__social {
-    background-color: $background-alt;
+    @include var(background-color, background-alt);
     display: inline-flex !important;
-    box-shadow: 0 0 0 10px $background-alt;
+    @include var(box-shadow, 0 0 0 10px, background-alt);
     margin-bottom: 1em;
+
+    @media (prefers-color-scheme: dark) { // @TODO
+      --c-social-link: rgba(63, 63, 63, .8);
+      --c-social-link--hover: rgba(63, 63, 63, 1);
+    }
   }
 }

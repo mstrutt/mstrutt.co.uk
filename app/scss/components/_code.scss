@@ -1,10 +1,9 @@
-@import '../colours';
-
 code,
 pre {
-  border: 1px solid $code-border-color;
+  border: 1px solid;
+  @include var(border-color, code-border-color);
   border-radius: .4em;
-  background: $code-background;
+  @include var(background, code-background);
 }
 
 code {
@@ -17,12 +16,12 @@ code {
   &:after {
     content: "\00a0";
     letter-spacing: -.2em
-  }    
+  }
 }
 
 pre {
   padding: .75em 1em;
-  
+
   > code {
     display: block;
     border: 0;
@@ -31,6 +30,6 @@ pre {
     &:before,
     &:after {
       content: none;
-    }    
+    }
   }
 }

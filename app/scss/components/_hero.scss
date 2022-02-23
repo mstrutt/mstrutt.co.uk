@@ -17,10 +17,6 @@
   .nav-bar {
     @media (min-width: #{$hero-smallest-overlap-width}) {
       top: $hero-padding-top;
-
-      &::after {
-        display: none;
-      }
     }
 
     @media (min-width: 1000px) {
@@ -34,8 +30,8 @@
   }
 
   .blog-post {
-    background-color: white;
-    box-shadow: 0 $hero-post-gutter-y 0 $hero-post-gutter-x white;
+    @include var(background-color, background-alt);
+    @include var(box-shadow, 0 $hero-post-gutter-y 0 $hero-post-gutter-x, background-alt);
     padding-top: .75em;
 
     @media (min-width: #{$hero-smallest-overlap-width}) {
@@ -43,7 +39,7 @@
       position: relative;
 
       &::before {
-        box-shadow: 0 $hero-post-gutter-y 7px $hero-post-gutter-x $default-shadow-color;
+        @include var(box-shadow, 0 $hero-post-gutter-y $hero-shadow-size $hero-post-gutter-x, default-shadow-color);
         content: '';
         display: block;
         height: $hero-shadow-height;
@@ -86,14 +82,14 @@
   }
 
   &__attribution {
-    color: rgba(255, 255, 255, .9) !important;
+    color: rgba(255, 255, 255, .9) !important; // @TODO
     display: inline-block;
     font-size: .7em;
     padding: .5em;
     position: absolute;
     right: 1em;
     text-decoration: none;
-    text-shadow: 0 0 2px rgba(0, 0, 0, .80);
+    text-shadow: 0 0 2px rgba(0, 0, 0, .80); // @TODO
     top: 1em;
 
     @media (min-width: #{$hero-smallest-overlap-width}) {

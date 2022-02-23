@@ -3,7 +3,7 @@
   justify-content: center;
 
   &__link {
-    background-color: $header-border;
+    @include var(background-color, social-link);
     border-radius: 33px;
     display: block;
     height: 58px;
@@ -21,7 +21,7 @@
     &:last-child {
       margin-right: 0;
     }
-    
+
     svg {
       height: 32px;
       width: 32px;
@@ -42,12 +42,12 @@
     &:visited,
     &:hover,
     &:visited:hover {
-      color: white;
+      @include var(color, social-link-icon);
     }
-    
+
     &:focus,
     &:hover {
-      background-color: rgba($header-border, .6);
+      @include var(background-color, social-link--hover);
       transform: matrix(1, 0, 0, 1, 0, 0);
     }
   }
