@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How I use journaling to support my wellbeing
-preview: I see a lot of mentions of journaling on social media. Some of the personal development books I’ve read include journaling prompts at the end of each chapter. Any search of the term will turn up a lot of content on the _benefits_ of journaling. But what I don’t really see anyone talking about, is what journaling means to them, or how they go about it.
+preview: I see a lot of mentions of journaling on social media. Some of the personal development books I’ve read include journaling prompts at the end of each chapter. Any search of the term will turn up a lot of content on the benefits of journaling. But what I don’t really see anyone talking about, is what journaling means to them, or how they go about it.
 date: 2023-01-30 22:22:00
 image: /images/blog/journaling.jpg
 image_alt: 'A leather-bound journal and pen placed outside on top of a large mossy rock.'
@@ -71,7 +71,7 @@ Finally, I read back through everything I just wrote, and re-apply it to myself:
 
 ### Everyday/routinely
 
-I don’t jounral every day. Generally I try to journal a couple of times a week, even when I don’t think there is anything in particular on my mind. I like to create dedicated space for my thoughts.
+I don’t journal think there is anything in particular on my mind. I like to create dedicated space for my thoughts.
 
 My entries don’t follow any particular format or pattern. Though I have found it helpful to include the date in case I ever look back over them. It usually begins as a stream of consciousness. What’s been important to me lately? Has there been anything on my mind recently? Are there any situations I’ve been reflecting on that went particularly well, or could have gone better? What patterns have I noticed in my mood or behaviour? How do I feel right now, and what could be contributing to that?
 
