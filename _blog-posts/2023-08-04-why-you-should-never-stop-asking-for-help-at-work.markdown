@@ -6,7 +6,7 @@ date: 2023-08-04 16:37:37
 image: /images/blog/asking-for-help.jpg
 image_alt: 'A hand reaching up out of the water, seemly alone in the middle of a large body of water on a turbulent day.'
 hero: /images/blog/asking-for-help-hero.jpg
-# hero_m: /images/blog/asking-for-help-hero-m.jpg
+hero_m: /images/blog/asking-for-help-hero-m.jpg
 hero_xl: /images/blog/asking-for-help-hero-xl.jpg
 hero_credit_text: Photo by Nikko Macaspac on Unsplash
 hero_credit_link: https://unsplash.com/@nikkotations
