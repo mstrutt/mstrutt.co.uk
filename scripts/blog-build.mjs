@@ -26,7 +26,7 @@ readdirPromise(`${SRC_FOLDER}`)
           const body = marked(content.body);
           const date_formatted = new Date(content.attributes.date).toDateString();
           const url = getPostUrl(filename);
-          const reading_time = estimateReadingTime(content.body, body);
+          const reading_time = content.attributes.reading_time || estimateReadingTime(content.body, body);
           const json = Object.assign({}, content.attributes, {
             body,
             date_formatted,
